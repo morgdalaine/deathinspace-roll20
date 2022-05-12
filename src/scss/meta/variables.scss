@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Arsenal:400,700|Cairo:200,400,700|IBM+Plex+Mono:200,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&family=Cairo:wght@200;400;700&family=IBM+Plex+Mono:wght@200;400;700&display=swap');
+
+// bootstrap variables
+$grid-columns:      13;
+$grid-gutter-width: 0.5rem;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// stylelint-disable value-keyword-case
+$font-title: 'Cairo', sans-serif;
+$font-body: 'Arsenal', sans-serif;
+$font-input: 'IBM Plex Mono', monospace;
+
+// $font-size-root affects the value of `rem`, which is used for as well font sizes, paddings, and margins
+// $font-size-base affects the font size of the body text
+$font-size-base:              1.25rem; // Assumes the browser default, typically `16px`
+
+$font-h1:                     $font-size-base * 2.5;
+$font-h2:                     $font-size-base * 2;
+$font-h3:                     $font-size-base * 1.75;
+$font-h4:                     $font-size-base * 1.5;
+$font-h5:                     $font-size-base * 1.25;
+$font-h6:                     $font-size-base;
+
+$font-xl:                     $font-size-base * 1.25;
+$font-l:                      $font-size-base * 1.125;
+$font-m:                      $font-size-base;
+$font-s:                      $font-size-base * 0.875;
+$font-xs:                     $font-size-base * 0.75;
+
+.font-h1 { font-size: $font-h1;  }
+.font-h2 { font-size: $font-h2;  }
+.font-h3 { font-size: $font-h3;  }
+.font-h4 { font-size: $font-h4;  }
+.font-h5 { font-size: $font-h5;  }
+.font-h6 { font-size: $font-h6;  }
+.font-xl { font-size: $font-xl;  }
+.font-l { font-size: $font-l;  }
+.font-m { font-size: $font-m;  }
+.font-s { font-size: $font-s;  }
+.font-xs { font-size: $font-xs;  }

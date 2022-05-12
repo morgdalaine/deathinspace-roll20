@@ -1,77 +1,4 @@
 
-<input type="checkbox" name="attr_sheet_type"/>
-<div class="deathinspace">
-  <div class="pc">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <!-- header-->
-          <div>header info</div>
-        </div>
-        <div class="col">
-          <!-- navbar-->
-          <div>navbar</div>
-        </div>
-        <div class="col">
-          <div>origin radios</div>
-        </div>
-        <div class="col-4">
-          <div>name</div>
-        </div>
-        <div class="col-4">
-          <div>nickname</div>
-        </div>
-        <div class="col-4 rowspan-4">
-          <div>origin benefit (row span 4)</div>
-        </div>
-        <div class="col-3">
-          <div>xp</div>
-        </div>
-        <div class="col-5">
-          <div>background</div>
-        </div>
-        <div class="col-3">
-          <div>past allegiance</div>
-        </div>
-        <div class="col-5">
-          <div>trait</div>
-        </div>
-        <div class="col-3">
-          <div>drive</div>
-        </div>
-        <div class="col-5 rowspan-2">
-          <div>looks (row span 2)</div>
-        </div>
-        <div class="col-3 rowspan-3">
-          <div>ability (row span 3)</div>
-        </div>
-        <div class="col-4 rowspan-3">
-          <div>portrait (row span 3)</div>
-        </div>
-        <div class="col-5">
-          <div>defense rating</div>
-        </div>
-        <div class="col-5">
-          <div>hit points</div>
-        </div>
-      </div>
-    </div>
-    <div class="font-h1">font-h1</div>
-    <div class="font-h2">font-h2</div>
-    <div class="font-h3">font-h3</div>
-    <div class="font-h4">font-h4</div>
-    <div class="font-h5">font-h5</div>
-    <div class="font-h6">font-h6</div>
-    <div class="font-xl">font-xl</div>
-    <div class="font-l">font-l</div>
-    <div class="font-m">font-m</div>
-    <div class="font-s">font-s</div>
-    <div class="font-xs">font-xs</div>
-  </div>
-  <div class="hub"></div>
-</div>
-<script type="text/worker">
-  
 /**
   Checks if a repcontain (e.g. repeating_weapons) is empty.
   This is calculated by looking at the length of IDs in fieldset.
@@ -180,5 +107,3 @@ const orderSection = function(repOrder, IDs=[]) {
     }, [], ["strength_mod", "size"]); // calling with default section details
   });
 */
-
-</script>

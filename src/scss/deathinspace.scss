@@ -3,6 +3,10 @@
 // roll template
 @import 'templates/roll';
 
+// utilities
+@import 'util/breakpoints';
+@import 'util/grid';
+
 html {
   .charsheet .deathinspace {
     display: grid;
