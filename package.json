@@ -1,0 +1,26 @@
+{
+  "name": "deathinspace",
+  "version": "1.0.0",
+  "description": "An unoffical, community-supported system for playing Death in Space on Roll20.",
+  "main": "index.js",
+  "scripts": {
+    "start": "run-p compile:*",
+    "compile:sass": "sass src/scss/deathinspace.scss deathinspace.css --no-source-map --no-charset --watch",
+    "compile:pug": "pug src/pug/deathinspace.pug --out . -P -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morgdalaine/deathinspace-roll20.git"
+  },
+  "author": "Morgdalaine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morgdalaine/deathinspace-roll20/issues"
+  },
+  "homepage": "https://github.com/morgdalaine/deathinspace-roll20#readme",
+  "dependencies": {
+    "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.51.0"
+  }
+}

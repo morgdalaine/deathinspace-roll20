@@ -1,0 +1,14 @@
+@import 'meta/variables';
+
+// roll template
+@import 'templates/roll';
+
+html {
+  .charsheet .deathinspace {
+    display: grid;
+
+    // page styles
+    @import "pages/pc/pc";
+    @import "pages/hub/hub";
+  }
+}
