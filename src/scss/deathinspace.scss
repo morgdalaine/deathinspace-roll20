@@ -1,18 +1,20 @@
-@import 'meta/variables';
+@import "meta/variables";
 
 // roll template
-@import 'templates/roll';
+@import "templates/rolltemplate";
 
 // utilities
-@import 'util/breakpoints';
-@import 'util/grid';
+@import "util/breakpoints";
+@import "util/grid";
 
 html {
+  font-size: 10px !important;
+
   .charsheet .deathinspace {
     display: grid;
 
     // page styles
-    @import "pages/pc/pc";
+    @import "pages/character/character";
     @import "pages/hub/hub";
   }
 }

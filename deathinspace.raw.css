@@ -727,6 +727,9 @@
   grid-column: span 13;
 }
 
+html {
+  font-size: 10px !important;
+}
 html .charsheet .deathinspace {
   display: grid;
 }
