@@ -95,6 +95,10 @@
       align-items: center;
       justify-content: center;
       border-left: 2px dotted $border-color;
+
+      .death__label {
+        font-size: $font-m;
+      }
     }
   }
 }

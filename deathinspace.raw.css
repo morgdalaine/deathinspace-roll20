@@ -915,7 +915,7 @@ html .charsheet .deathinspace input[type=radio] {
   box-sizing: content-box;
   display: grid;
   grid-template-areas: "checkbox";
-  margin: 5px auto;
+  margin: 0;
   height: 2rem;
   width: 2rem;
   outline: 0;
@@ -941,7 +941,7 @@ html .charsheet .deathinspace textarea {
   background-image: linear-gradient(to right, var(--input-background) 5px, transparent 5px), linear-gradient(to left, var(--input-background) 5px, transparent 5px), repeating-linear-gradient(var(--input-background), var(--input-background) calc(2rem - 1px), var(--input-ruler-color) calc(2rem - 1px), var(--input-ruler-color) 2rem, var(--input-background) 2rem);
   background-attachment: local;
   line-height: 2rem;
-  padding: 4px 10px;
+  padding: 0 10px;
 }
 html .charsheet .deathinspace span[name] {
   white-space: pre-wrap;
@@ -1001,6 +1001,7 @@ html .charsheet .deathinspace .header__name {
   font-size: 5rem;
   font-weight: 900;
   text-transform: uppercase;
+  white-space: nowrap;
   line-height: 4rem;
 }
 html .charsheet .deathinspace .header__sheet {
@@ -1182,4 +1183,69 @@ html .charsheet .deathinspace .character .personal .hitpoints__value {
   align-items: center;
   justify-content: center;
   border-left: 2px dotted var(--border-color);
+}
+html .charsheet .deathinspace .character .personal .defense__value .death__label,
+html .charsheet .deathinspace .character .personal .hitpoints__value .death__label {
+  font-size: 1rem;
+}
+html .charsheet .deathinspace .character .situation {
+  display: grid;
+  gap: 2px;
+  background: var(--grid-background);
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "void-points        void-points" "cosmic-mutations   life-support" "void-corruption    void-corruption";
+}
+html .charsheet .deathinspace .character .situation__void-points {
+  grid-area: void-points;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 5px;
+}
+html .charsheet .deathinspace .character .situation__cosmic-mutations {
+  grid-area: cosmic-mutations;
+}
+html .charsheet .deathinspace .character .situation__life-support {
+  grid-area: life-support;
+}
+html .charsheet .deathinspace .character .situation__void-corruption {
+  grid-area: void-corruption;
+}
+html .charsheet .deathinspace .character .situation .void-points__uses {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+html .charsheet .deathinspace .character .situation .void-points__radios {
+  display: grid;
+  grid-template-columns: repeat(5, 2.5rem);
+  column-gap: 5px;
+  margin: 5px;
+}
+html .charsheet .deathinspace .character .situation .void-points__radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+html .charsheet .deathinspace .character .situation .void-points__input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+html .charsheet .deathinspace .character .situation .void-points__input:checked + .void-points__label {
+  background-color: #d72328;
+  color: #fff;
+}
+html .charsheet .deathinspace .character .situation .void-points__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 700;
 }

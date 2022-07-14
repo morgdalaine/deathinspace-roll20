@@ -16,6 +16,10 @@ mixin field(field)
       textarea(name=`attr_${name}`, value=value, class=klass, min=min, max=max,
             data-i18n-placeholder=`placeholder_${name}`, placeholder=placeholder)
 
+    when "checkbox"
+    when "radio"
+      input(name=`attr_${name}`, type=type, value=value, class=klass)
+
     when "text"
     default
       input(name=`attr_${name}`, type=type, value=value, class=klass,

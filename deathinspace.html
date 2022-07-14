@@ -15,19 +15,19 @@
     <nav class="nav nav__character">
       <input class=" nav__nav--hidden" name="attr_nav" type="hidden" value="personal"/>
       <div class="nav__page nav__page--personal">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="personal" data-i18n-placeholder="placeholder_nav"/>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="personal"/>
         <label class="nav__label" data-i18n="nav_personal">Section 1. Personal</label>
       </div>
       <div class="nav__page nav__page--situation">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="situation" data-i18n-placeholder="placeholder_nav"/>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="situation"/>
         <label class="nav__label" data-i18n="nav_situation">Section 2. Situation</label>
       </div>
       <div class="nav__page nav__page--belongings">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="belongings" data-i18n-placeholder="placeholder_nav"/>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="belongings"/>
         <label class="nav__label" data-i18n="nav_belongings">Section 3. Belongings</label>
       </div>
       <div class="nav__page nav__page--notes">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="notes" data-i18n-placeholder="placeholder_nav"/>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="notes"/>
         <label class="nav__label" data-i18n="nav_notes">Section 4. Notes</label>
       </div>
     </nav>
@@ -122,7 +122,50 @@
         </div>
       </section>
     </div>
-    <div class="page-container page--situation"></div>
+    <div class="page-container page--situation">
+      <section class="situation">
+        <div class="death__block situation__void-points">
+          <div class="situation__void-points--block">
+            <label class="death__label" data-i18n="void_points">Void Points</label>
+            <div class="void-points__radios">
+              <label class="void-points__radio">
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="0"/><span class="void-points__label" data-i18n="void_points_0">0</span>
+              </label>
+              <label class="void-points__radio">
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="1"/><span class="void-points__label" data-i18n="void_points_1">1</span>
+              </label>
+              <label class="void-points__radio">
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="2"/><span class="void-points__label" data-i18n="void_points_2">2</span>
+              </label>
+              <label class="void-points__radio">
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="3"/><span class="void-points__label" data-i18n="void_points_3">3</span>
+              </label>
+              <label class="void-points__radio">
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="4"/><span class="void-points__label" data-i18n="void_points_4">4</span>
+              </label>
+            </div>
+          </div>
+          <div class="situation__void-points--block"><span class="void-points__uses death__subtitle" data-i18n="use_void_point">Void Points can be used to:</span>
+            <ul>
+              <li class="death__subtitle fst-italic" data-i18n="void_point_use_1">Get advantage on an ability check or attack roll.</li>
+              <li class="death__subtitle fst-italic" data-i18n="void_point_use_2">Activate a cosmic mutation.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="death__block situation__cosmic-mutations">
+          <label class="death__label" data-i18n="cosmic_mutation">Cosmic Mutations</label>
+          <textarea class=" situation__cosmic_mutation--textarea" name="attr_cosmic_mutation" data-i18n-placeholder="placeholder_cosmic_mutation" placeholder="Feedback Loop. Can jump back ten seconds in time, at the cost of losing one important memory, chosen by the player."></textarea>
+        </div>
+        <div class="death__block situation__life-support">
+          <label class="death__label" data-i18n="life_support">Life Support</label>
+          <input class=" situation__life_support--radio" name="attr_life_support" type="radio"/>
+        </div>
+        <div class="death__block situation__void-corruption">
+          <label class="death__label" data-i18n="void_corruption">Void Corruption</label>
+          <textarea class=" situation__void_corruption--textarea" name="attr_void_corruption" data-i18n-placeholder="placeholder_void_corruption" placeholder="Your most important memory transcends to an item you carry. You and others can feel and see the memory if they hold the object."></textarea>
+        </div>
+      </section>
+    </div>
     <div class="page-container page--belongings"></div>
     <div class="page-container page--notes"></div>
   </main>

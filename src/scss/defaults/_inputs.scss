@@ -29,7 +29,7 @@ input[type='radio'] {
   box-sizing: content-box;
   display: grid;
   grid-template-areas: 'checkbox';
-  margin: $m-md auto;
+  margin: 0;
   height: 2rem;
   width: 2rem;
 
@@ -69,7 +69,7 @@ textarea {
 
   background-attachment: local;
   line-height: $input-line-height;
-  padding: calc($p-md - 1px) $p-lg;
+  padding: 0 $p-lg;
 }
 
 span[name] {
