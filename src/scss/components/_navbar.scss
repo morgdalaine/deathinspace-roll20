@@ -1,0 +1,66 @@
+.page {
+  $this: '.page';
+
+  &-container {
+    display: none;
+  }
+}
+
+.nav {
+  $this: '.nav';
+  display: flex;
+
+  margin: 0;
+  padding-top: $p-md;
+
+  &__character {
+    background-color: $character-color;
+    --active-page-color: #{$character-color};
+  }
+  &__hub {
+    --active-page-color: #{$hub-color};
+  }
+
+  &__page {
+    flex: 1;
+    position: relative;
+    margin-right: $m-md;
+    padding: $p-md 0;
+
+    &--input[type='radio'] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  }
+
+  &__label {
+    color: $white;
+    font-size: $font-m;
+    font-family: $font-nav;
+    text-align: center;
+  }
+}
+
+input[name*='nav'] {
+  $pages: 'personal', 'situation', 'belongings', 'weaponry', 'notes';
+  @each $page in $pages {
+    &[value='#{$page}'] {
+      ~ .page--#{$page} {
+        display: block;
+        transition: 0.5s ease;
+      }
+      ~ .nav__page--#{$page} {
+        background-color: $active-page-background;
+        transition: 0.5s ease;
+
+        .nav__label {
+          color: $active-page-color;
+          font-size: $font-l;
+          // font-weight: 700;
+        }
+      }
+    }
+  }
+}

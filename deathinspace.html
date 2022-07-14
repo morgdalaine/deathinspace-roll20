@@ -1,8 +1,132 @@
 
-<input type="checkbox" name="attr_sheet_type"/>
+<input type="hidden" name="attr_sheet_type"/>
 <div class="deathinspace">
-  <div class="character"></div>
-  <div class="hub"></div>
+  <main class="character">
+    <header class="header">
+      <div class="header__character">
+        <div class="header__name" data-i18n="death_in_space">Death in Space</div>
+        <label class="header__sheet" data-i18n="personal_data_sheet">Personal Data Sheet</label>
+      </div>
+      <div class="header__section-zero"><span class="header__section-zero--span" data-i18n="player_information">Section 0. Player Information</span>
+        <label class="death__label" data-i18n="player_name">Player Name</label>
+        <input class="header__section-zero--input header__player_name--text" name="attr_player_name" type="text" data-i18n-placeholder="placeholder_player_name" placeholder="Gene Starwind"/>
+      </div>
+    </header>
+    <nav class="nav nav__character">
+      <input class=" nav__nav--hidden" name="attr_nav" type="hidden" value="personal"/>
+      <div class="nav__page nav__page--personal">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="personal" data-i18n-placeholder="placeholder_nav"/>
+        <label class="nav__label" data-i18n="nav_personal">Section 1. Personal</label>
+      </div>
+      <div class="nav__page nav__page--situation">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="situation" data-i18n-placeholder="placeholder_nav"/>
+        <label class="nav__label" data-i18n="nav_situation">Section 2. Situation</label>
+      </div>
+      <div class="nav__page nav__page--belongings">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="belongings" data-i18n-placeholder="placeholder_nav"/>
+        <label class="nav__label" data-i18n="nav_belongings">Section 3. Belongings</label>
+      </div>
+      <div class="nav__page nav__page--notes">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="notes" data-i18n-placeholder="placeholder_nav"/>
+        <label class="nav__label" data-i18n="nav_notes">Section 4. Notes</label>
+      </div>
+    </nav>
+    <input class="navigator" name="attr_nav" type="hidden"/>
+    <div class="page-container page--personal">
+      <section class="personal">
+        <div class="death__block personal__origin">
+          <label class="death__label" data-i18n="origin">Origin</label>
+          <div class="divider--dotted"></div>
+          <input class=" personal__origin--text" name="attr_origin" type="text" data-i18n-placeholder="placeholder_origin" placeholder="Carbon"/>
+        </div>
+        <div class="death__block personal__nickname">
+          <div class="personal__nickname--block">
+            <label class="death__label" data-i18n="character_name">Name</label>
+            <input class=" personal__character_name--text" name="attr_character_name" type="text" data-i18n-placeholder="placeholder_character_name" placeholder="Aisha Clan-Clan"/>
+          </div>
+          <div class="personal__nickname--block">
+            <label class="death__label" data-i18n="nickname">Nickname</label>
+            <input class=" personal__nickname--text" name="attr_nickname" type="text" data-i18n-placeholder="placeholder_nickname" placeholder="Fire Cat"/>
+          </div>
+        </div>
+        <div class="death__block personal__origin-benefit">
+          <label class="death__label" data-i18n="origin_benefit">Origin Benefit</label>
+          <textarea class=" personal__origin_benefit--textarea" name="attr_origin_benefit" data-i18n-placeholder="placeholder_origin_benefit" placeholder="Engineered lungs"></textarea>
+        </div>
+        <div class="death__block personal__xp">
+          <label class="death__label" data-i18n="xp">XP</label>
+          <input class=" personal__xp--number" name="attr_xp" type="number" data-i18n-placeholder="placeholder_xp" placeholder="0"/>
+        </div>
+        <div class="death__block personal__background">
+          <label class="death__label" data-i18n="background">Background</label>
+          <input class=" personal__background--text" name="attr_background" type="text" data-i18n-placeholder="placeholder_background" placeholder="Moon Outlaw"/>
+        </div>
+        <div class="death__block personal__past-allegiance">
+          <label class="death__label" data-i18n="past_allegiance">Past Allegiance</label>
+          <input class=" personal__past_allegiance--text" name="attr_past_allegiance" type="text" data-i18n-placeholder="placeholder_past_allegiance" placeholder="An idea"/>
+        </div>
+        <div class="death__block personal__trait">
+          <label class="death__label" data-i18n="trait">Trait</label>
+          <input class=" personal__trait--text" name="attr_trait" type="text" data-i18n-placeholder="placeholder_trait" placeholder="Polite"/>
+        </div>
+        <div class="death__block personal__drive">
+          <label class="death__label" data-i18n="drive">Drive</label>
+          <input class=" personal__drive--text" name="attr_drive" type="text" data-i18n-placeholder="placeholder_drive" placeholder="Friends"/>
+        </div>
+        <div class="death__block personal__looks">
+          <label class="death__label" data-i18n="looks">Looks</label>
+          <textarea class=" personal__looks--textarea" name="attr_looks" data-i18n-placeholder="placeholder_looks" placeholder="Trucker cap with patch"></textarea>
+        </div>
+        <div class="death__block personal__abilities">
+          <label class="death__label" data-i18n="abilities">Abilities</label>
+          <div class="personal__abilities--block">
+            <button class="ability__button" name="act_body"><span class="ability__label" data-i18n="body">Body</span></button>
+            <input class="ability__value death__input--bordered personal__body--number" name="attr_body" type="number" data-i18n-placeholder="placeholder_body" placeholder="0"/>
+          </div>
+          <div class="personal__abilities--block">
+            <button class="ability__button" name="act_dexterity"><span class="ability__label" data-i18n="dexterity">Dexterity</span></button>
+            <input class="ability__value death__input--bordered personal__dexterity--number" name="attr_dexterity" type="number" data-i18n-placeholder="placeholder_dexterity" placeholder="0"/>
+          </div>
+          <div class="personal__abilities--block">
+            <button class="ability__button" name="act_savvy"><span class="ability__label" data-i18n="savvy">Savvy</span></button>
+            <input class="ability__value death__input--bordered personal__savvy--number" name="attr_savvy" type="number" data-i18n-placeholder="placeholder_savvy" placeholder="0"/>
+          </div>
+          <div class="personal__abilities--block">
+            <button class="ability__button" name="act_tech"><span class="ability__label" data-i18n="tech">Tech</span></button>
+            <input class="ability__value death__input--bordered personal__tech--number" name="attr_tech" type="number" data-i18n-placeholder="placeholder_tech" placeholder="0"/>
+          </div>
+        </div>
+        <div class="death__block personal__defense">
+          <div class="personal__defense--block">
+            <label class="death__label" data-i18n="defense">Defense</label><span class="death__subtitle" data-i18n="defense_formula">12+DEX Unarmored</span>
+          </div>
+          <div class="personal__defense--block defense__value">
+            <input class="death__input--bordered personal__defense--number" name="attr_defense" type="number" data-i18n-placeholder="placeholder_defense" placeholder="0"/>
+          </div>
+        </div>
+        <div class="death__block personal__hitpoints">
+          <div class="personal__hitpoints--block">
+            <label class="death__label" data-i18n="hitpoints">Hit Points</label><span class="death__subtitle fst-italic" data-i18n="start_with">Start with 1d8</span><br/><span class="death__subtitle fst-italic" data-i18n="recover">Recover 1d8+BDY</span><br/>
+          </div>
+          <div class="personal__hitpoints--block hitpoints__value">
+            <label class="death__label text-center" data-i18n="hp">Current</label>
+            <input class="death__input--bordered personal__hp--number" name="attr_hp" type="number" data-i18n-placeholder="placeholder_hp" placeholder="0"/>
+          </div>
+          <div class="personal__hitpoints--block hitpoints__value">
+            <label class="death__label text-center" data-i18n="hp_max">Max</label>
+            <input class="death__input--bordered personal__hp_max--number" name="attr_hp_max" type="number" data-i18n-placeholder="placeholder_hp_max" placeholder="0"/>
+          </div>
+        </div>
+        <div class="death__block personal__portrait">
+          <label class="death__label" data-i18n="character_avatar">Portrait</label><img class="personal__portrait--image" name="attr_character_avatar"/>
+        </div>
+      </section>
+    </div>
+    <div class="page-container page--situation"></div>
+    <div class="page-container page--belongings"></div>
+    <div class="page-container page--notes"></div>
+  </main>
+  <main class="hub"></main>
 </div>
 <script type="text/worker">
   /**

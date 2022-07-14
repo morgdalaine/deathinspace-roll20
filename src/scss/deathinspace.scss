@@ -1,20 +1,39 @@
-@import "meta/variables";
+@import 'util/color';
+@import 'meta/variables';
+
+@import 'util/reset';
 
 // roll template
-@import "templates/rolltemplate";
+@import 'templates/rolltemplate';
+
+// light & dark modes
+@import 'themes/default';
+@import 'themes/darkmode';
+@import 'themes/lightmode';
 
 // utilities
-@import "util/breakpoints";
-@import "util/grid";
+@import 'util/breakpoints';
+@import 'util/grid';
 
 html {
-  font-size: 10px !important;
+  font-size: $font-size-root !important;
 
   .charsheet .deathinspace {
     display: grid;
+    min-width: 720px;
+
+    @import 'util/utilities';
+
+    // global styles
+    @import 'defaults/extra';
+    @import 'defaults/fonts';
+    @import 'defaults/inputs';
+    @import 'defaults/global';
 
     // page styles
-    @import "pages/character/character";
-    @import "pages/hub/hub";
+    @import 'components/header';
+    @import 'components/navbar';
+    @import 'pages/character/character';
+    @import 'pages/hub/hub';
   }
 }

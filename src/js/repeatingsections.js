@@ -1,4 +1,3 @@
-
 /**
   Checks if a repcontain (e.g. repeating_weapons) is empty.
   This is calculated by looking at the length of IDs in fieldset.
@@ -27,7 +26,7 @@ const isFieldsetEmpty = (section) => {
     @param sections: similar to getSectionIDs; object containing fieldset name
       as key and array of IDs as value.
 **/
-const getAllAttrs = function(callback, sectionDetails=[], getArray=[]) {
+const getAllAttrs = function (callback, sectionDetails = [], getArray = []) {
   getSections(getArray, sectionDetails, (getArr, sections) => {
     getAttrs(getArr, (attributes) => {
       // order the sections
@@ -45,16 +44,15 @@ const getAllAttrs = function(callback, sectionDetails=[], getArray=[]) {
   Arguments are the same as for getAllAttrs with the addition of sections
   @param sections: accumulates the idArrays for each section
 **/
-const getSections = function(getArray=[], sectionDetails=[], callback, sections={}) {
+const getSections = function (getArray = [], sectionDetails = [], callback, sections = {}) {
   // grab the first section to work;
   let section = sectionDetails.shift();
   getSectionIDs(section.section, (idArray) => {
-
     // store the idArray for use later on if needed.
     sections[section.section] = [...idArray];
 
     // add the sections reporder to the getArray so that we can order the idArray later.
-    getArray.push(`_reporder_${section.section}`)
+    getArray.push(`_reporder_${section.section}`);
 
     // iterate through the ids
     idArray.forEach((id) => {
@@ -76,7 +74,7 @@ const getSections = function(getArray=[], sectionDetails=[], callback, sections=
 
 // The next three functions are only used for the ID ordering.
 // orders the section id arrays to match the repOrder attribute
-const orderSections = function(attributes, sections) {
+const orderSections = function (attributes, sections) {
   Object.keys(sections).forEach((section) => {
     attributes[`_reporder_${section}`] = commaArray(attributes[`_reporder_${section}`]);
     orderSection(attributes[`_reporder_${section}`], sections[section]);
@@ -84,12 +82,12 @@ const orderSections = function(attributes, sections) {
 };
 
 // splits a comma delimited string into an array
-const commaArray = function(string="") {
+const commaArray = function (string = '') {
   return string.toLowerCase().split(/\s*,\s*/);
 };
 
 // orders a single ID array
-const orderSection = function(repOrder, IDs=[]) {
+const orderSection = function (repOrder, IDs = []) {
   IDs.sort((a, b) => {
     return repOrder.indexOf(a.toLowerCase()) - repOrder.indexOf(b.toLowerCase());
   });

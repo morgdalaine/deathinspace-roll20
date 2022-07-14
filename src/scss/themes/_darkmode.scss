@@ -1,0 +1,20 @@
+.sheet-darkmode * {
+  --dis-background: transparent;
+  --block-background: #{$blackest};
+  --grid-background: #{$gray-700};
+
+  --input-background: #{$black};
+  --input-ruler-color: #{$gray-500};
+  --input-color: #{$white};
+  --border-color: #{$gray-700};
+
+  --label-color: #{$white};
+  --subtitle-color: #{$gray-300};
+  --font-color: #{$gray-100};
+
+  --active-page-background: #{$blackest};
+
+  .sheetform {
+    background-color: $dis-background;
+  }
+}

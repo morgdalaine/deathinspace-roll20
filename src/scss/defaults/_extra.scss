@@ -1,0 +1,7 @@
+.divider {
+  &--dotted {
+    margin: 0 $m-md;
+    border-right: 2px dotted;
+    border-color: $border-color;
+  }
+}

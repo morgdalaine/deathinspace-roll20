@@ -1,0 +1,29 @@
+mixin field(field)
+  -
+    const { name, label, value, placeholder, min, max, blockName } = field;
+    const type = field.type || "text";
+    const klass = `${attributes.class || ""} ${blockName}__${name}--${type}`;
+
+  case type
+    when "hidden"
+      input(name=`attr_${name}`, type=type, value=value, class=klass)
+
+    when "number"
+      input(name=`attr_${name}`, type=type, value=value, class=klass, min=min, max=max,
+            data-i18n-placeholder=`placeholder_${name}`, placeholder=placeholder)
+
+    when "textarea"
+      textarea(name=`attr_${name}`, value=value, class=klass, min=min, max=max,
+            data-i18n-placeholder=`placeholder_${name}`, placeholder=placeholder)
+
+    when "text"
+    default
+      input(name=`attr_${name}`, type=type, value=value, class=klass,
+            data-i18n-placeholder=`placeholder_${name}`, placeholder=placeholder)
+
+mixin span(field)
+  -
+    const name = field.name;
+    const value = field.value || "";
+    const klass = attributes.class | "";
+  span(name=`attr_${name}`, class=klass)=value

@@ -1,12 +1,12 @@
-@use "sass:math";
-@use "sass:map";
+@use 'sass:math';
+@use 'sass:map';
 
 // bootstrap containers
 .container {
   background: transparent;
-  background: black;
 }
 
+.grid,
 .row {
   display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
@@ -21,19 +21,21 @@
     display: none;
   }
 
-  margin: auto;
-  padding: math.div($grid-gutter-width, 2);
+  // margin: auto;
+  // padding: math.div($grid-gutter-width, 2);
 
-  > * {
-    width: 100%;
-    grid-column: 1 / -1;
-  }
+  // > * {
+  //   width: 100%;
+  //   grid-column: 1 / -1;
+  // }
 }
 
 .col {
   grid-column: 1 / -1;
   background: lightblue;
-  div { border: 1px solid darkblue }
+  div {
+    border: 1px solid darkblue;
+  }
 }
 
 // bootstrap columns
@@ -43,7 +45,9 @@
     grid-column-start: auto;
     grid-column-end: span $i;
     background: lightblue;
-    div { border: 1px solid darkblue }
+    div {
+      border: 1px solid darkblue;
+    }
   }
 }
 
@@ -61,6 +65,12 @@
 }
 
 @for $i from 2 through $grid-columns {
-  .rowspan-#{$i} { height: 100%; grid-row: span $i; }
-  .colspan-#{$i} { height: 100%; grid-column: span $i; }
+  .rowspan-#{$i} {
+    height: 100%;
+    grid-row: span $i;
+  }
+  .colspan-#{$i} {
+    height: 100%;
+    grid-column: span $i;
+  }
 }

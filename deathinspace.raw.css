@@ -1,70 +1,141 @@
-@import url("https://fonts.googleapis.com/css?family=Arsenal:400,700|Cairo:200,400,700|IBM+Plex+Mono:200,400,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&family=Cairo:wght@200;400;700&family=IBM+Plex+Mono:wght@200;400;700&display=swap");
-.font-h1 {
-  font-size: 3.125rem;
+@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Arsenal&family=Cairo:wght@900&display=swap);
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height: unset;
+  width: unset;
+  padding: unset;
+  margin: unset;
+  font-family: unset;
+  font-size: 1rem;
+  font-weight: unset;
+  line-height: unset;
+  color: unset;
+  border: unset;
+  border-radius: unset;
+  background: unset;
+  background-color: unset;
 }
 
-.font-h2 {
-  font-size: 2.5rem;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: unset;
+  line-height: unset;
+  color: unset;
 }
 
-.font-h3 {
-  font-size: 2.1875rem;
+label,
+input,
+input[type=number],
+select,
+textarea,
+button,
+button[type=roll] {
+  display: unset;
+  width: unset;
+  height: unset;
+  padding: unset;
+  margin-bottom: unset;
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  line-height: unset;
+  color: unset;
+  border: unset;
+  border-radius: unset;
+  background: unset;
+  background-color: unset;
+  box-shadow: unset;
 }
 
-.font-h4 {
-  font-size: 1.875rem;
+button[type=roll]::before {
+  display: none;
 }
 
-.font-h5 {
-  font-size: 1.5625rem;
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  background-color: unset;
+  border-color: unset;
 }
 
-.font-h6 {
-  font-size: 1.25rem;
+fieldset {
+  background: transparent;
 }
 
-.font-xl {
-  font-size: 1.5625rem;
+span {
+  word-break: break-word;
 }
 
-.font-l {
-  font-size: 1.40625rem;
+input[type=number] {
+  text-align: center;
+  width: 100%;
+  -moz-appearance: textfield;
+}
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.font-m {
-  font-size: 1.25rem;
+.btn:hover {
+  background-position: 0 0;
+  background-color: transparent;
 }
 
-.font-s {
-  font-size: 1.09375rem;
+.sheet-darkmode * {
+  --dis-background: transparent;
+  --block-background: #000;
+  --grid-background: #7c7f83;
+  --input-background: #231f1f;
+  --input-ruler-color: #ced4da;
+  --input-color: #fff;
+  --border-color: #7c7f83;
+  --label-color: #fff;
+  --subtitle-color: #e2e5e9;
+  --font-color: #f5f6f8;
+  --active-page-background: #000;
+}
+.sheet-darkmode * .sheetform {
+  background-color: var(--dis-background);
 }
 
-.font-xs {
-  font-size: 0.9375rem;
+* {
+  --block-background: #fff;
+  --grid-background: #231f1f;
+  --input-background: #f5f6f8;
+  --input-ruler-color: #ced4da;
+  --input-color: #231f1f;
+  --border-color: #231f1f;
+  --label-color: #231f1f;
+  --subtitle-color: #231f1f;
+  --font-color: #231f1f;
+  --active-page-background: #fff;
 }
 
 .container {
   background: transparent;
-  background: black;
 }
 
+.grid,
 .row {
   display: grid;
-  grid-template-columns: repeat(13, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2px;
   justify-items: center;
   align-items: start;
   width: 100%;
-  margin: auto;
-  padding: 0.25rem;
 }
-.row:before, .row:after {
+.grid:before, .grid:after,
+.row:before,
+.row:after {
   display: none;
-}
-.row > * {
-  width: 100%;
-  grid-column: 1/-1;
 }
 
 .col {
@@ -195,16 +266,6 @@
   border: 1px solid darkblue;
 }
 
-.col-13 {
-  position: initial;
-  grid-column-start: auto;
-  grid-column-end: span 13;
-  background: lightblue;
-}
-.col-13 div {
-  border: 1px solid darkblue;
-}
-
 @media (min-width: 0) {
   .col-xs-1 {
     position: initial;
@@ -265,11 +326,6 @@
     position: initial;
     grid-column-start: auto;
     grid-column-end: span 12;
-  }
-  .col-xs-13 {
-    position: initial;
-    grid-column-start: auto;
-    grid-column-end: span 13;
   }
 }
 @media (min-width: 576px) {
@@ -333,11 +389,6 @@
     grid-column-start: auto;
     grid-column-end: span 12;
   }
-  .col-sm-13 {
-    position: initial;
-    grid-column-start: auto;
-    grid-column-end: span 13;
-  }
 }
 @media (min-width: 768px) {
   .col-md-1 {
@@ -399,11 +450,6 @@
     position: initial;
     grid-column-start: auto;
     grid-column-end: span 12;
-  }
-  .col-md-13 {
-    position: initial;
-    grid-column-start: auto;
-    grid-column-end: span 13;
   }
 }
 @media (min-width: 992px) {
@@ -467,11 +513,6 @@
     grid-column-start: auto;
     grid-column-end: span 12;
   }
-  .col-lg-13 {
-    position: initial;
-    grid-column-start: auto;
-    grid-column-end: span 13;
-  }
 }
 @media (min-width: 1200px) {
   .col-xl-1 {
@@ -534,11 +575,6 @@
     grid-column-start: auto;
     grid-column-end: span 12;
   }
-  .col-xl-13 {
-    position: initial;
-    grid-column-start: auto;
-    grid-column-end: span 13;
-  }
 }
 @media (min-width: 1400px) {
   .col-xxl-1 {
@@ -600,11 +636,6 @@
     position: initial;
     grid-column-start: auto;
     grid-column-end: span 12;
-  }
-  .col-xxl-13 {
-    position: initial;
-    grid-column-start: auto;
-    grid-column-end: span 13;
   }
 }
 .rowspan-2 {
@@ -717,19 +748,438 @@
   grid-column: span 12;
 }
 
-.rowspan-13 {
-  height: 100%;
-  grid-row: span 13;
-}
-
-.colspan-13 {
-  height: 100%;
-  grid-column: span 13;
-}
-
 html {
   font-size: 10px !important;
 }
 html .charsheet .deathinspace {
   display: grid;
+  min-width: 720px;
+}
+html .charsheet .deathinspace .font-h1 {
+  font-size: 2.5rem;
+}
+html .charsheet .deathinspace .font-h2 {
+  font-size: 2rem;
+}
+html .charsheet .deathinspace .font-h3 {
+  font-size: 1.75rem;
+}
+html .charsheet .deathinspace .font-h4 {
+  font-size: 1.5rem;
+}
+html .charsheet .deathinspace .font-h5 {
+  font-size: 1.25rem;
+}
+html .charsheet .deathinspace .font-h6 {
+  font-size: 1rem;
+}
+html .charsheet .deathinspace .font-xl {
+  font-size: 1.25rem;
+}
+html .charsheet .deathinspace .font-l {
+  font-size: 1.125rem;
+}
+html .charsheet .deathinspace .font-m {
+  font-size: 1rem;
+}
+html .charsheet .deathinspace .font-s {
+  font-size: 0.875rem;
+}
+html .charsheet .deathinspace .font-xs {
+  font-size: 0.75rem;
+}
+html .charsheet .deathinspace .d-flex {
+  display: flex;
+}
+html .charsheet .deathinspace .d-inline-flex {
+  display: inline-flex;
+}
+html .charsheet .deathinspace .flex-row {
+  flex-direction: row;
+}
+html .charsheet .deathinspace .flex-row-reverse {
+  flex-direction: row-reverse;
+}
+html .charsheet .deathinspace .flex-column {
+  flex-direction: column;
+}
+html .charsheet .deathinspace .flex-column-reverse {
+  flex-direction: column-reverse;
+}
+html .charsheet .deathinspace .justify-content-start {
+  justify-content: start;
+}
+html .charsheet .deathinspace .justify-content-end {
+  justify-content: end;
+}
+html .charsheet .deathinspace .justify-content-center {
+  justify-content: center;
+}
+html .charsheet .deathinspace .justify-content-between {
+  justify-content: space-between;
+}
+html .charsheet .deathinspace .justify-content-around {
+  justify-content: space-around;
+}
+html .charsheet .deathinspace .justify-content-evenly {
+  justify-content: space-evenly;
+}
+html .charsheet .deathinspace .align-items-start {
+  align-items: start;
+}
+html .charsheet .deathinspace .align-items-end {
+  align-items: end;
+}
+html .charsheet .deathinspace .align-items-center {
+  align-items: center;
+}
+html .charsheet .deathinspace .align-items-baseline {
+  align-items: baseline;
+}
+html .charsheet .deathinspace .align-items-stretch {
+  align-items: stretch;
+}
+html .charsheet .deathinspace .text-start {
+  text-align: start;
+}
+html .charsheet .deathinspace .text-center {
+  text-align: center;
+}
+html .charsheet .deathinspace .text-end {
+  text-align: end;
+}
+html .charsheet .deathinspace .fw-bold {
+  font-weight: 700;
+}
+html .charsheet .deathinspace .fw-normal {
+  font-weight: 400;
+}
+html .charsheet .deathinspace .fw-light {
+  font-weight: 200;
+}
+html .charsheet .deathinspace .fst-italic {
+  font-style: italic;
+}
+html .charsheet .deathinspace .fst-normal {
+  font-style: normal;
+}
+html .charsheet .deathinspace .tt-uppercase {
+  text-transform: uppercase;
+}
+html .charsheet .deathinspace .visible {
+  visibility: visible !important;
+}
+html .charsheet .deathinspace .invisible {
+  visibility: hidden !important;
+}
+html .charsheet .deathinspace .divider--dotted {
+  margin: 0 5px;
+  border-right: 2px dotted;
+  border-color: var(--border-color);
+}
+html .charsheet .deathinspace * {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  color: var(--font-color);
+}
+html .charsheet .deathinspace input[type=number],
+html .charsheet .deathinspace input[type=text],
+html .charsheet .deathinspace select,
+html .charsheet .deathinspace textarea {
+  width: 100%;
+  margin: 2.5px 0;
+  padding: 5px;
+  padding-bottom: 2.5px;
+  background-color: var(--input-background);
+  color: var(--input-color);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+}
+html .charsheet .deathinspace input[type=number]:active, html .charsheet .deathinspace input[type=number]:hover, html .charsheet .deathinspace input[type=number]:focus,
+html .charsheet .deathinspace input[type=text]:active,
+html .charsheet .deathinspace input[type=text]:hover,
+html .charsheet .deathinspace input[type=text]:focus,
+html .charsheet .deathinspace select:active,
+html .charsheet .deathinspace select:hover,
+html .charsheet .deathinspace select:focus,
+html .charsheet .deathinspace textarea:active,
+html .charsheet .deathinspace textarea:hover,
+html .charsheet .deathinspace textarea:focus {
+  outline: 0;
+}
+html .charsheet .deathinspace input[type=number] {
+  text-align: center;
+}
+html .charsheet .deathinspace input[type=checkbox],
+html .charsheet .deathinspace input[type=radio] {
+  box-sizing: content-box;
+  display: grid;
+  grid-template-areas: "checkbox";
+  margin: 5px auto;
+  height: 2rem;
+  width: 2rem;
+  outline: 0;
+  appearance: none;
+}
+html .charsheet .deathinspace input[type=checkbox]:before, html .charsheet .deathinspace input[type=checkbox]:after,
+html .charsheet .deathinspace input[type=radio]:before,
+html .charsheet .deathinspace input[type=radio]:after {
+  grid-area: checkbox;
+  height: 100%;
+  width: 100%;
+}
+html .charsheet .deathinspace input[type=checkbox]:focus,
+html .charsheet .deathinspace input[type=radio]:focus {
+  outline: 0;
+}
+html .charsheet .deathinspace textarea {
+  min-height: 5rem;
+  max-height: 20rem;
+  resize: vertical;
+  scrollbar-width: thin;
+  background-attachment: local;
+  background-image: linear-gradient(to right, var(--input-background) 5px, transparent 5px), linear-gradient(to left, var(--input-background) 5px, transparent 5px), repeating-linear-gradient(var(--input-background), var(--input-background) calc(2rem - 1px), var(--input-ruler-color) calc(2rem - 1px), var(--input-ruler-color) 2rem, var(--input-background) 2rem);
+  background-attachment: local;
+  line-height: 2rem;
+  padding: 4px 10px;
+}
+html .charsheet .deathinspace span[name] {
+  white-space: pre-wrap;
+}
+html .charsheet .deathinspace span[name]:empty {
+  text-align: center;
+}
+html .charsheet .deathinspace span[name]:empty:before {
+  display: inline;
+  content: "—";
+}
+html .charsheet .deathinspace label {
+  display: block;
+  color: var(--label-color);
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+html .charsheet .deathinspace .death__block {
+  background: var(--block-background);
+  padding: 2.5px;
+}
+html .charsheet .deathinspace .death__input--bordered {
+  border: 2px dotted var(--border-color);
+  font-size: 1.5rem !important;
+  width: 3.5em !important;
+}
+html .charsheet .deathinspace .death__subtitle {
+  color: var(--subtitle-color);
+}
+html .charsheet .deathinspace .header {
+  display: grid;
+  gap: 2px;
+  background: var(--grid-background);
+  grid-template-columns: 1fr 1fr;
+}
+html .charsheet .deathinspace .header__character, html .charsheet .deathinspace .header__section-zero {
+  background: var(--block-background);
+  padding: 2.5px;
+}
+html .charsheet .deathinspace .header__character {
+  padding-top: 5px;
+  padding-left: 5px;
+}
+html .charsheet .deathinspace .header__section-zero--span {
+  text-transform: uppercase;
+}
+html .charsheet .deathinspace .header__section-zero--input {
+  border-bottom: 2px dotted;
+  border-color: var(--border-color);
+}
+html .charsheet .deathinspace .header__name {
+  color: #d72328;
+  font-family: Cairo, sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 4rem;
+}
+html .charsheet .deathinspace .header__sheet {
+  color: #d72328;
+}
+html .charsheet .deathinspace .page-container {
+  display: none;
+}
+html .charsheet .deathinspace .nav {
+  display: flex;
+  margin: 0;
+  padding-top: 5px;
+}
+html .charsheet .deathinspace .nav__character {
+  background-color: #d72328;
+  --active-page-color: #d72328;
+}
+html .charsheet .deathinspace .nav__hub {
+  --active-page-color: #3a8db9;
+}
+html .charsheet .deathinspace .nav__page {
+  flex: 1;
+  position: relative;
+  margin-right: 5px;
+  padding: 5px 0;
+}
+html .charsheet .deathinspace .nav__page--input[type=radio] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+html .charsheet .deathinspace .nav__label {
+  color: #fff;
+  font-size: 1rem;
+  font-family: "IBM Plex Mono", monospace;
+  text-align: center;
+}
+html .charsheet .deathinspace input[name*=nav][value=personal] ~ .page--personal {
+  display: block;
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=personal] ~ .nav__page--personal {
+  background-color: var(--active-page-background);
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=personal] ~ .nav__page--personal .nav__label {
+  color: var(--active-page-color);
+  font-size: 1.125rem;
+}
+html .charsheet .deathinspace input[name*=nav][value=situation] ~ .page--situation {
+  display: block;
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=situation] ~ .nav__page--situation {
+  background-color: var(--active-page-background);
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=situation] ~ .nav__page--situation .nav__label {
+  color: var(--active-page-color);
+  font-size: 1.125rem;
+}
+html .charsheet .deathinspace input[name*=nav][value=belongings] ~ .page--belongings {
+  display: block;
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=belongings] ~ .nav__page--belongings {
+  background-color: var(--active-page-background);
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=belongings] ~ .nav__page--belongings .nav__label {
+  color: var(--active-page-color);
+  font-size: 1.125rem;
+}
+html .charsheet .deathinspace input[name*=nav][value=weaponry] ~ .page--weaponry {
+  display: block;
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=weaponry] ~ .nav__page--weaponry {
+  background-color: var(--active-page-background);
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=weaponry] ~ .nav__page--weaponry .nav__label {
+  color: var(--active-page-color);
+  font-size: 1.125rem;
+}
+html .charsheet .deathinspace input[name*=nav][value=notes] ~ .page--notes {
+  display: block;
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=notes] ~ .nav__page--notes {
+  background-color: var(--active-page-background);
+  transition: 0.5s ease;
+}
+html .charsheet .deathinspace input[name*=nav][value=notes] ~ .nav__page--notes .nav__label {
+  color: var(--active-page-color);
+  font-size: 1.125rem;
+}
+html .charsheet .deathinspace .character {
+  border: 4px solid #d72328;
+}
+html .charsheet .deathinspace .character .personal {
+  display: grid;
+  gap: 2px;
+  background: var(--grid-background);
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "origin            origin       origin" "nickname          nickname     origin-benefit" "xp                background   origin-benefit" "past-allegiance   trait        origin-benefit" "drive             looks        portrait" "abilities         looks        portrait" "abilities         defense      portrait" "abilities         hitpoints    portrait";
+}
+html .charsheet .deathinspace .character .personal__origin {
+  grid-area: origin;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  column-gap: 5px;
+}
+html .charsheet .deathinspace .character .personal__nickname {
+  grid-area: nickname;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+html .charsheet .deathinspace .character .personal__origin-benefit {
+  grid-area: origin-benefit;
+}
+html .charsheet .deathinspace .character .personal__xp {
+  grid-area: xp;
+}
+html .charsheet .deathinspace .character .personal__background {
+  grid-area: background;
+}
+html .charsheet .deathinspace .character .personal__past-allegiance {
+  grid-area: past-allegiance;
+}
+html .charsheet .deathinspace .character .personal__trait {
+  grid-area: trait;
+}
+html .charsheet .deathinspace .character .personal__drive {
+  grid-area: drive;
+}
+html .charsheet .deathinspace .character .personal__looks {
+  grid-area: looks;
+}
+html .charsheet .deathinspace .character .personal__abilities {
+  grid-area: abilities;
+}
+html .charsheet .deathinspace .character .personal__abilities--block {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 0 10px;
+  column-gap: 10px;
+}
+html .charsheet .deathinspace .character .personal__defense {
+  grid-area: defense;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+html .charsheet .deathinspace .character .personal__defense .death__subtitle {
+  text-transform: uppercase;
+}
+html .charsheet .deathinspace .character .personal__hitpoints {
+  grid-area: hitpoints;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+html .charsheet .deathinspace .character .personal__portrait {
+  grid-area: portrait;
+}
+html .charsheet .deathinspace .character .personal .ability__button {
+  text-align: start;
+}
+html .charsheet .deathinspace .character .personal .ability__label {
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+html .charsheet .deathinspace .character .personal .defense__value,
+html .charsheet .deathinspace .character .personal .hitpoints__value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 2px dotted var(--border-color);
 }

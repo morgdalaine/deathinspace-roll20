@@ -1,12 +1,13 @@
 include meta/data/data
 include meta/translations
+include components/components
 
 
-input(type='checkbox' name='attr_sheet_type' class='')
+input(type='hidden' name='attr_sheet_type' class='')
 .deathinspace
-  .character
+  main.character
     include layouts/character
-  .hub
+  main.hub
     include layouts/hub
 
 script(type="text/worker")

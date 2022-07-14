@@ -1,0 +1,21 @@
+.death {
+  &__block {
+    background: $block-background;
+    padding: $p-sm;
+  }
+
+  &__input {
+    &--bordered {
+      border: 2px dotted $border-color;
+      font-size: $font-h4 !important;
+      width: $input-width !important;
+    }
+  }
+
+  &__label {
+  }
+
+  &__subtitle {
+    color: $subtitle-color;
+  }
+}
