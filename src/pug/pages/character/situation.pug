@@ -14,7 +14,6 @@ section.situation
           label.void-points__radio
             +field(field).void-points__input
             span.void-points__label(data-i18n=i18nkey)=field.value
-          - console.log({i18nkey, field})
 
     .situation__void-points--block
       - const { use_void_points, void_point_uses } = situationsubs;
@@ -29,8 +28,30 @@ section.situation
     +field(cosmicmutations)
 
   .death__block.situation__life-support
+
     label.death__label(data-i18n=lifesupport.name)=lifesupport.label
-    +field(lifesupport)
+    .life-support
+      +field(lifesupport)
+      .life-support__labels
+        label.life-support__label 0%
+        label.life-support__label 100%
+      .life-support__oxygen-tank
+        .life-support__oxygen-tank--grid
+          each bar in lifesupport.options
+            label.oxygen-tank__bar(class=`oxygen-tank__bar--${bar.value}`)
+              +field(bar).oxygen-tank__bar--input
+              if bar.value == 0
+                span.oxygen-tank__bar--empty(title="Empty", data-i18n-title="Empty") *
+
+
+      .life-support__time-remaining
+        each bar in lifesupport.options
+          - const i18nkey = `${bar.name}_${bar.value}`;
+          label.life-support__label.text-center(class=`life-support__time-remaining--${bar.value}`, data-i18n=i18nkey)=bar.label
+
+
+
+
 
   .death__block.situation__void-corruption
     label.death__label(data-i18n=voidcorruption.name)=voidcorruption.label

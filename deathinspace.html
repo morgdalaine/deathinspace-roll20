@@ -15,19 +15,19 @@
     <nav class="nav nav__character">
       <input class=" nav__nav--hidden" name="attr_nav" type="hidden" value="personal"/>
       <div class="nav__page nav__page--personal">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="personal"/>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="personal" data-i18n-title="title_nav_personal" title=""/>
         <label class="nav__label" data-i18n="nav_personal">Section 1. Personal</label>
       </div>
       <div class="nav__page nav__page--situation">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="situation"/>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="situation" data-i18n-title="title_nav_situation" title=""/>
         <label class="nav__label" data-i18n="nav_situation">Section 2. Situation</label>
       </div>
       <div class="nav__page nav__page--belongings">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="belongings"/>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="belongings" data-i18n-title="title_nav_belongings" title=""/>
         <label class="nav__label" data-i18n="nav_belongings">Section 3. Belongings</label>
       </div>
       <div class="nav__page nav__page--notes">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="notes"/>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="notes" data-i18n-title="title_nav_notes" title=""/>
         <label class="nav__label" data-i18n="nav_notes">Section 4. Notes</label>
       </div>
     </nav>
@@ -129,19 +129,19 @@
             <label class="death__label" data-i18n="void_points">Void Points</label>
             <div class="void-points__radios">
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="0"/><span class="void-points__label" data-i18n="void_points_0">0</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="0" data-i18n-title="title_void_points_0" title=""/><span class="void-points__label" data-i18n="void_points_0">0</span>
               </label>
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="1"/><span class="void-points__label" data-i18n="void_points_1">1</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="1" data-i18n-title="title_void_points_1" title=""/><span class="void-points__label" data-i18n="void_points_1">1</span>
               </label>
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="2"/><span class="void-points__label" data-i18n="void_points_2">2</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="2" data-i18n-title="title_void_points_2" title=""/><span class="void-points__label" data-i18n="void_points_2">2</span>
               </label>
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="3"/><span class="void-points__label" data-i18n="void_points_3">3</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="3" data-i18n-title="title_void_points_3" title=""/><span class="void-points__label" data-i18n="void_points_3">3</span>
               </label>
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="4"/><span class="void-points__label" data-i18n="void_points_4">4</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="4" data-i18n-title="title_void_points_4" title=""/><span class="void-points__label" data-i18n="void_points_4">4</span>
               </label>
             </div>
           </div>
@@ -158,7 +158,51 @@
         </div>
         <div class="death__block situation__life-support">
           <label class="death__label" data-i18n="life_support">Life Support</label>
-          <input class=" situation__life_support--radio" name="attr_life_support" type="radio"/>
+          <div class="life-support">
+            <input class=" situation__life_support--hidden" name="attr_life_support" type="hidden"/>
+            <div class="life-support__labels">
+              <label class="life-support__label">0%</label>
+              <label class="life-support__label">100%</label>
+            </div>
+            <div class="life-support__oxygen-tank">
+              <div class="life-support__oxygen-tank--grid">
+                <label class="oxygen-tank__bar oxygen-tank__bar--0">
+                  <input class="oxygen-tank__bar--input situation__life_support--radio" name="attr_life_support" type="radio" value="0" data-i18n-title="title_life_support_0" title="0 hours remaining"/><span class="oxygen-tank__bar--empty" title="Empty" data-i18n-title="Empty">*</span>
+                </label>
+                <label class="oxygen-tank__bar oxygen-tank__bar--1">
+                  <input class="oxygen-tank__bar--input situation__life_support--radio" name="attr_life_support" type="radio" value="1" data-i18n-title="title_life_support_1" title="1 hour remaining"/>
+                </label>
+                <label class="oxygen-tank__bar oxygen-tank__bar--2">
+                  <input class="oxygen-tank__bar--input situation__life_support--radio" name="attr_life_support" type="radio" value="2" data-i18n-title="title_life_support_2" title="2 hours remaining"/>
+                </label>
+                <label class="oxygen-tank__bar oxygen-tank__bar--3">
+                  <input class="oxygen-tank__bar--input situation__life_support--radio" name="attr_life_support" type="radio" value="3" data-i18n-title="title_life_support_3" title="3 hours remaining"/>
+                </label>
+                <label class="oxygen-tank__bar oxygen-tank__bar--4">
+                  <input class="oxygen-tank__bar--input situation__life_support--radio" name="attr_life_support" type="radio" value="4" data-i18n-title="title_life_support_4" title="4 hours remaining"/>
+                </label>
+                <label class="oxygen-tank__bar oxygen-tank__bar--5">
+                  <input class="oxygen-tank__bar--input situation__life_support--radio" name="attr_life_support" type="radio" value="5" data-i18n-title="title_life_support_5" title="5 hours remaining"/>
+                </label>
+                <label class="oxygen-tank__bar oxygen-tank__bar--6">
+                  <input class="oxygen-tank__bar--input situation__life_support--radio" name="attr_life_support" type="radio" value="6" data-i18n-title="title_life_support_6" title="6 hours remaining"/>
+                </label>
+                <label class="oxygen-tank__bar oxygen-tank__bar--7">
+                  <input class="oxygen-tank__bar--input situation__life_support--radio" name="attr_life_support" type="radio" value="7" data-i18n-title="title_life_support_7" title="7 hours remaining"/>
+                </label>
+              </div>
+            </div>
+            <div class="life-support__time-remaining">
+              <label class="life-support__label text-center life-support__time-remaining--0" data-i18n="life_support_0">0 hours remaining</label>
+              <label class="life-support__label text-center life-support__time-remaining--1" data-i18n="life_support_1">1 hour remaining</label>
+              <label class="life-support__label text-center life-support__time-remaining--2" data-i18n="life_support_2">2 hours remaining</label>
+              <label class="life-support__label text-center life-support__time-remaining--3" data-i18n="life_support_3">3 hours remaining</label>
+              <label class="life-support__label text-center life-support__time-remaining--4" data-i18n="life_support_4">4 hours remaining</label>
+              <label class="life-support__label text-center life-support__time-remaining--5" data-i18n="life_support_5">5 hours remaining</label>
+              <label class="life-support__label text-center life-support__time-remaining--6" data-i18n="life_support_6">6 hours remaining</label>
+              <label class="life-support__label text-center life-support__time-remaining--7" data-i18n="life_support_7">7 hours remaining</label>
+            </div>
+          </div>
         </div>
         <div class="death__block situation__void-corruption">
           <label class="death__label" data-i18n="void_corruption">Void Corruption</label>

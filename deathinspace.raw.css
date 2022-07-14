@@ -1192,7 +1192,7 @@ html .charsheet .deathinspace .character .situation {
   display: grid;
   gap: 2px;
   background: var(--grid-background);
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 250px;
   grid-template-areas: "void-points        void-points" "cosmic-mutations   life-support" "void-corruption    void-corruption";
 }
 html .charsheet .deathinspace .character .situation__void-points {
@@ -1206,6 +1206,8 @@ html .charsheet .deathinspace .character .situation__cosmic-mutations {
 }
 html .charsheet .deathinspace .character .situation__life-support {
   grid-area: life-support;
+  display: flex;
+  flex-direction: column;
 }
 html .charsheet .deathinspace .character .situation__void-corruption {
   grid-area: void-corruption;
@@ -1248,4 +1250,100 @@ html .charsheet .deathinspace .character .situation .void-points__label {
   border-radius: 50%;
   font-size: 1.25rem;
   font-weight: 700;
+}
+html .charsheet .deathinspace .character .situation .life-support {
+  margin: 5px;
+}
+html .charsheet .deathinspace .character .situation .life-support__labels {
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+html .charsheet .deathinspace .character .situation .life-support__label {
+  font-size: 1rem;
+}
+html .charsheet .deathinspace .character .situation .life-support__oxygen-tank {
+  position: relative;
+  background-image: url("https://raw.githubusercontent.com/morgdalaine/morgdalaine-roll20/main/DEATH-IN-SPACE/assets/oxygen_tank.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 60px;
+}
+html .charsheet .deathinspace .character .situation .life-support__oxygen-tank--grid {
+  display: grid;
+  grid-template-columns: 15px repeat(7, 1fr);
+  width: 170px;
+  height: 49px;
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 15px, #eb2026 100%);
+}
+html .charsheet .deathinspace .character .situation .life-support__oxygen-tank .oxygen-tank__bar {
+  position: relative;
+  display: flex;
+  border: 1px solid #231f1f;
+}
+html .charsheet .deathinspace .character .situation .life-support__oxygen-tank .oxygen-tank__bar--0 {
+  border-color: transparent;
+}
+html .charsheet .deathinspace .character .situation .life-support__oxygen-tank .oxygen-tank__bar--input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+html .charsheet .deathinspace .character .situation .life-support__oxygen-tank .oxygen-tank__bar--empty {
+  align-self: center;
+  color: #fff;
+  font-family: Pictos;
+  font-size: 1.25rem;
+}
+html .charsheet .deathinspace .character .situation .life-support__time-remaining .life-support__label {
+  display: none;
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="7"] ~ .life-support__time-remaining .life-support__time-remaining--7 {
+  display: block;
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="6"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
+  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 130px, rgba(235, 32, 38, 0) 150px);
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="6"] ~ .life-support__time-remaining .life-support__time-remaining--6 {
+  display: block;
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="5"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
+  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 105px, rgba(235, 32, 38, 0) 130px);
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="5"] ~ .life-support__time-remaining .life-support__time-remaining--5 {
+  display: block;
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="4"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
+  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 85px, rgba(235, 32, 38, 0) 105px);
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="4"] ~ .life-support__time-remaining .life-support__time-remaining--4 {
+  display: block;
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="3"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
+  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 60px, rgba(235, 32, 38, 0) 85px);
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="3"] ~ .life-support__time-remaining .life-support__time-remaining--3 {
+  display: block;
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="2"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
+  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 35px, rgba(235, 32, 38, 0) 60px);
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="2"] ~ .life-support__time-remaining .life-support__time-remaining--2 {
+  display: block;
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="1"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
+  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, rgba(235, 32, 38, 0) 25%);
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="1"] ~ .life-support__time-remaining .life-support__time-remaining--1 {
+  display: block;
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="0"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
+  background: rgba(235, 32, 38, 0);
+}
+html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="0"] ~ .life-support__time-remaining .life-support__time-remaining--0 {
+  display: block;
 }

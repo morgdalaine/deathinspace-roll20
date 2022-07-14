@@ -2,6 +2,7 @@ mixin field(field)
   -
     const { name, label, value, placeholder, min, max, blockName } = field;
     const type = field.type || "text";
+    const title = field.title || "";
     const klass = `${attributes.class || ""} ${blockName}__${name}--${type}`;
 
   case type
@@ -18,7 +19,8 @@ mixin field(field)
 
     when "checkbox"
     when "radio"
-      input(name=`attr_${name}`, type=type, value=value, class=klass)
+      - const titleKey = `title_${name}_${value}`;
+      input(name=`attr_${name}`, type=type, value=value, data-i18n-title=titleKey, title=title, class=klass)
 
     when "text"
     default
