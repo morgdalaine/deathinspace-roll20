@@ -1,0 +1,3 @@
+mixin is-repeating-empty(fieldset)
+  input(name=`is_${fieldset}_empty`, value="0" type="hidden")
+  label.repeating__empty(data-i18n=`${fieldset}_is_empty`)=`No ${fieldset} recorded.`

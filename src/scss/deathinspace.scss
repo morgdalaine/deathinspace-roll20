@@ -29,11 +29,11 @@ html {
     @import 'defaults/fonts';
     @import 'defaults/inputs';
     @import 'defaults/global';
+    @import 'defaults/repcontainer';
 
     // page styles
-    @import 'components/header';
-    @import 'components/navbar';
-    @import 'pages/character/character';
-    @import 'pages/hub/hub';
+    @import 'components/';
+    @import 'pages/character';
+    @import 'pages/hub';
   }
 }

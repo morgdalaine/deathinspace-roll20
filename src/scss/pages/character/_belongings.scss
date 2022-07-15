@@ -1,0 +1,64 @@
+.belongings {
+  $this: '.belongings';
+  display: grid;
+  gap: 2px;
+  background: $grid-background;
+  grid-template-columns: 1fr;
+
+  grid-template-areas:
+    'inventory'
+    'small-items'
+    'weapon-1'
+    'weapon-2'
+    'armor'
+    'holos';
+
+  &__inventory {
+    grid-area: inventory;
+    display: grid;
+    &--header {
+      display: grid;
+      column-gap: $m-md;
+      grid-template-columns: repeat(2, 1fr calc($input-width * 2));
+      grid-template-areas: '. label-left . label-right';
+    }
+  }
+  &__small-items {
+    grid-area: small-items;
+  }
+  &__weapon-1 {
+    grid-area: weapon-1;
+  }
+  &__weapon-2 {
+    grid-area: weapon-2;
+  }
+  &__armor {
+    grid-area: armor;
+  }
+  &__holos {
+    grid-area: holos;
+  }
+}
+
+.inventory,
+.small-items {
+  &--block {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+  }
+  &__label {
+    font-size: $font-m;
+    &--left {
+      grid-area: label-left;
+    }
+    &--right {
+      grid-area: label-right;
+    }
+  }
+  &__input {
+    border-bottom: 2px dotted $border-color;
+    &[type='number'] {
+      width: $input-width * 2;
+    }
+  }
+}

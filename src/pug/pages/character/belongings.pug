@@ -1,0 +1,25 @@
+section.belongings
+  -
+    const belongings = data.character.belongings;
+
+  .death__block.belongings__inventory
+    .belongings__inventory--header
+      label.inventory__label.inventory__label--left.text-center(data-i18n="condition") Condition
+      label.inventory__label.inventory__label--right.text-center(data-i18n="condition") Condition
+    +is-repeating-empty("inventory")
+    fieldset.repeating_inventory
+      - const { invname, condition} = belongings.inventory.fields;
+      .inventory
+        .inventory--block
+          +field(invname).inventory__input
+          .divider--dotted
+          +field(condition).inventory__input
+
+  .death__block.belongings__small-items
+    label.death__label(data-i18n="small_items") Small Items
+    +is-repeating-empty("small-items")
+    fieldset.repeating_small-items
+      - const { itemname } = belongings.smallitems.fields;
+      .small-items
+        .small-items--block
+          +field(itemname).small-items__input

@@ -210,7 +210,39 @@
         </div>
       </section>
     </div>
-    <div class="page-container page--belongings"></div>
+    <div class="page-container page--belongings">
+      <section class="belongings">
+        <div class="death__block belongings__inventory">
+          <div class="belongings__inventory--header">
+            <label class="inventory__label inventory__label--left text-center" data-i18n="condition">Condition</label>
+            <label class="inventory__label inventory__label--right text-center" data-i18n="condition">Condition</label>
+          </div>
+          <input name="is_inventory_empty" value="0" type="hidden"/>
+          <label class="repeating__empty" data-i18n="inventory_is_empty">No inventory recorded.</label>
+          <fieldset class="repeating_inventory">
+            <div class="inventory">
+              <div class="inventory--block">
+                <input class="inventory__input inventory__item_name--text" name="attr_item_name" type="text" data-i18n-placeholder="placeholder_item_name" placeholder="Light EVA suit"/>
+                <div class="divider--dotted"></div>
+                <input class="inventory__input inventory__item_condition--number" name="attr_item_condition" type="number" data-i18n-placeholder="placeholder_item_condition" placeholder="0"/>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="death__block belongings__small-items">
+          <label class="death__label" data-i18n="small_items">Small Items</label>
+          <input name="is_small-items_empty" value="0" type="hidden"/>
+          <label class="repeating__empty" data-i18n="small-items_is_empty">No small-items recorded.</label>
+          <fieldset class="repeating_small-items">
+            <div class="small-items">
+              <div class="small-items--block">
+                <input class="small-items__input small-items__item_name--text" name="attr_item_name" type="text" data-i18n-placeholder="placeholder_item_name" placeholder="Duct tape"/>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+    </div>
     <div class="page-container page--notes"></div>
   </main>
   <main class="hub"></main>

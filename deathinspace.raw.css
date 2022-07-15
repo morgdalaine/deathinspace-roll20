@@ -974,6 +974,62 @@ html .charsheet .deathinspace .death__input--bordered {
 html .charsheet .deathinspace .death__subtitle {
   color: var(--subtitle-color);
 }
+html .charsheet .deathinspace .repcontainer[data-groupname=repeating_inventory], html .charsheet .deathinspace .repcontainer[data-groupname=repeating_small-items] {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+html .charsheet .deathinspace .repcontrol {
+  margin: 10px;
+}
+html .charsheet .deathinspace .repcontrol button {
+  box-shadow: none;
+  text-shadow: none;
+  color: var(--label-color);
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  font-size: 0em;
+  width: auto;
+  height: auto;
+}
+html .charsheet .deathinspace .repcontrol button.repcontrol_add::before, html .charsheet .deathinspace .repcontrol button.repcontrol_edit::before {
+  margin: 10px;
+  font-family: Pictos;
+  font-size: 1.75rem;
+  text-transform: uppercase;
+}
+html .charsheet .deathinspace .repcontrol button.repcontrol_add::before {
+  content: "&";
+}
+html .charsheet .deathinspace .repcontrol button.repcontrol_edit::before {
+  content: "(";
+}
+html .charsheet .deathinspace .repcontainer.editmode + .repcontrol button.repcontrol_edit::before {
+  content: ")";
+}
+html .charsheet .deathinspace .repitem .itemcontrol.itemcontrol .repcontrol_del,
+html .charsheet .deathinspace .repitem .itemcontrol.itemcontrol .repcontrol_move {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  font-size: 1.75rem;
+  font-family: Pictos;
+}
+html .charsheet .deathinspace .repitem .itemcontrol.itemcontrol .repcontrol_del {
+  background: #d72328;
+  color: #fff;
+}
+html .charsheet .deathinspace .repitem .itemcontrol.itemcontrol .repcontrol_move {
+  background: #ced4da;
+  color: #231f1f;
+}
 html .charsheet .deathinspace .header {
   display: grid;
   gap: 2px;
@@ -1099,6 +1155,9 @@ html .charsheet .deathinspace input[name*=nav][value=notes] ~ .nav__page--notes 
 html .charsheet .deathinspace input[name*=nav][value=notes] ~ .nav__page--notes .nav__label {
   color: var(--active-page-color);
   font-size: 1.125rem;
+}
+html .charsheet .deathinspace .repeating__empty {
+  color: magenta;
 }
 html .charsheet .deathinspace .character {
   border: 4px solid #d72328;
@@ -1265,20 +1324,20 @@ html .charsheet .deathinspace .character .situation .life-support__label {
 }
 html .charsheet .deathinspace .character .situation .life-support__oxygen-tank {
   position: relative;
-  background-image: url("https://raw.githubusercontent.com/morgdalaine/morgdalaine-roll20/main/DEATH-IN-SPACE/assets/oxygen_tank.png");
+  background-image: url("https://raw.githubusercontent.com/morgdalaine/deathinspace-roll20/main/img/oxygen_tank.png");
   background-repeat: no-repeat;
   background-size: contain;
   height: 60px;
 }
 html .charsheet .deathinspace .character .situation .life-support__oxygen-tank--grid {
   display: grid;
-  grid-template-columns: 15px repeat(7, 1fr);
-  width: 170px;
-  height: 49px;
+  grid-template-columns: 14px repeat(7, 1fr);
+  width: 172px;
+  height: 50px;
   position: absolute;
   top: 5px;
   left: 3px;
-  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 15px, #eb2026 100%);
+  background: linear-gradient(90deg, rgba(199, 16, 46, 0) 14px, #c7102e 14px, #c7102e 100%);
 }
 html .charsheet .deathinspace .character .situation .life-support__oxygen-tank .oxygen-tank__bar {
   position: relative;
@@ -1306,44 +1365,101 @@ html .charsheet .deathinspace .character .situation .life-support input[name*=li
   display: block;
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="6"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
-  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 130px, rgba(235, 32, 38, 0) 150px);
+  background: linear-gradient(90deg, rgba(199, 16, 46, 0) 14px, #c7102e 0%, #c7102e 130px, rgba(199, 16, 46, 0) 150px);
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="6"] ~ .life-support__time-remaining .life-support__time-remaining--6 {
   display: block;
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="5"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
-  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 105px, rgba(235, 32, 38, 0) 130px);
+  background: linear-gradient(90deg, rgba(199, 16, 46, 0) 14px, #c7102e 0%, #c7102e 105px, rgba(199, 16, 46, 0) 130px);
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="5"] ~ .life-support__time-remaining .life-support__time-remaining--5 {
   display: block;
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="4"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
-  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 85px, rgba(235, 32, 38, 0) 105px);
+  background: linear-gradient(90deg, rgba(199, 16, 46, 0) 14px, #c7102e 0%, #c7102e 85px, rgba(199, 16, 46, 0) 105px);
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="4"] ~ .life-support__time-remaining .life-support__time-remaining--4 {
   display: block;
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="3"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
-  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 60px, rgba(235, 32, 38, 0) 85px);
+  background: linear-gradient(90deg, rgba(199, 16, 46, 0) 14px, #c7102e 0%, #c7102e 60px, rgba(199, 16, 46, 0) 85px);
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="3"] ~ .life-support__time-remaining .life-support__time-remaining--3 {
   display: block;
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="2"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
-  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, #eb2026 35px, rgba(235, 32, 38, 0) 60px);
+  background: linear-gradient(90deg, rgba(199, 16, 46, 0) 14px, #c7102e 0%, #c7102e 35px, rgba(199, 16, 46, 0) 60px);
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="2"] ~ .life-support__time-remaining .life-support__time-remaining--2 {
   display: block;
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="1"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
-  background: linear-gradient(90deg, rgba(235, 32, 38, 0) 15px, #eb2026 0%, rgba(235, 32, 38, 0) 25%);
+  background: linear-gradient(90deg, rgba(199, 16, 46, 0) 14px, #c7102e 0%, rgba(199, 16, 46, 0) 25%);
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="1"] ~ .life-support__time-remaining .life-support__time-remaining--1 {
   display: block;
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="0"] ~ .life-support__oxygen-tank .life-support__oxygen-tank--grid {
-  background: rgba(235, 32, 38, 0);
+  background: rgba(199, 16, 46, 0);
 }
 html .charsheet .deathinspace .character .situation .life-support input[name*=life_support][value="0"] ~ .life-support__time-remaining .life-support__time-remaining--0 {
   display: block;
+}
+html .charsheet .deathinspace .character .belongings {
+  display: grid;
+  gap: 2px;
+  background: var(--grid-background);
+  grid-template-columns: 1fr;
+  grid-template-areas: "inventory" "small-items" "weapon-1" "weapon-2" "armor" "holos";
+}
+html .charsheet .deathinspace .character .belongings__inventory {
+  grid-area: inventory;
+  display: grid;
+}
+html .charsheet .deathinspace .character .belongings__inventory--header {
+  display: grid;
+  column-gap: 5px;
+  grid-template-columns: repeat(2, 1fr 7em);
+  grid-template-areas: ". label-left . label-right";
+}
+html .charsheet .deathinspace .character .belongings__small-items {
+  grid-area: small-items;
+}
+html .charsheet .deathinspace .character .belongings__weapon-1 {
+  grid-area: weapon-1;
+}
+html .charsheet .deathinspace .character .belongings__weapon-2 {
+  grid-area: weapon-2;
+}
+html .charsheet .deathinspace .character .belongings__armor {
+  grid-area: armor;
+}
+html .charsheet .deathinspace .character .belongings__holos {
+  grid-area: holos;
+}
+html .charsheet .deathinspace .character .inventory--block,
+html .charsheet .deathinspace .character .small-items--block {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+}
+html .charsheet .deathinspace .character .inventory__label,
+html .charsheet .deathinspace .character .small-items__label {
+  font-size: 1rem;
+}
+html .charsheet .deathinspace .character .inventory__label--left,
+html .charsheet .deathinspace .character .small-items__label--left {
+  grid-area: label-left;
+}
+html .charsheet .deathinspace .character .inventory__label--right,
+html .charsheet .deathinspace .character .small-items__label--right {
+  grid-area: label-right;
+}
+html .charsheet .deathinspace .character .inventory__input,
+html .charsheet .deathinspace .character .small-items__input {
+  border-bottom: 2px dotted var(--border-color);
+}
+html .charsheet .deathinspace .character .inventory__input[type=number],
+html .charsheet .deathinspace .character .small-items__input[type=number] {
+  width: 7em;
 }
