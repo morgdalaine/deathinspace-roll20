@@ -6,59 +6,125 @@
   grid-template-columns: 1fr;
 
   grid-template-areas:
+    'carry'
     'inventory'
     'small-items'
-    'weapon-1'
-    'weapon-2'
+    'weapons'
     'armor'
     'holos';
 
+  &__carry {
+    grid-area: carry;
+    display: grid;
+    grid-template-columns: 1fr calc($input-width * 2) calc($input-width * 2);
+  }
   &__inventory {
     grid-area: inventory;
     display: grid;
-    &--header {
-      display: grid;
-      column-gap: $m-md;
-      grid-template-columns: repeat(2, 1fr calc($input-width * 2));
-      grid-template-areas: '. label-left . label-right';
+    &--slot-limit {
+      font-size: $font-l;
     }
   }
   &__small-items {
     grid-area: small-items;
   }
-  &__weapon-1 {
-    grid-area: weapon-1;
-  }
-  &__weapon-2 {
-    grid-area: weapon-2;
+  &__weapons {
+    grid-area: weapons;
   }
   &__armor {
     grid-area: armor;
   }
   &__holos {
     grid-area: holos;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $m-lg;
+  }
+}
+
+.carry {
+  &__formula {
+    font-size: $font-m;
+    display: flex;
+    align-items: center;
+    &::before {
+      margin: 0 $m-lg;
+      font-size: $font-h4;
+      font-weight: 700;
+      content: '!';
+    }
+  }
+  &__value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 2px dotted $border-color;
   }
 }
 
 .inventory,
-.small-items {
+.small-items,
+.weapons,
+.armor {
   &--block {
     display: grid;
-    grid-template-columns: 1fr auto auto;
   }
   &__label {
-    font-size: $font-m;
-    &--left {
-      grid-area: label-left;
-    }
-    &--right {
-      grid-area: label-right;
-    }
+    text-align: center;
   }
   &__input {
     border-bottom: 2px dotted $border-color;
-    &[type='number'] {
-      width: $input-width * 2;
+    border-left: 2px dotted $border-color;
+
+    &:first-of-type {
+      border-left-color: transparent;
     }
+  }
+}
+
+.inventory {
+  $grid-columns: 1fr repeat(2, calc($input-width * 2));
+
+  &__header {
+    display: grid;
+    column-gap: $m-md;
+    grid-template-columns: $grid-columns $grid-columns;
+  }
+  &--block {
+    grid-template-columns: $grid-columns;
+  }
+}
+
+.weapons {
+  $grid-columns: 1fr repeat(4, calc($input-width * 2));
+
+  &__header {
+    display: grid;
+    grid-template-columns: $grid-columns;
+  }
+  &--block {
+    grid-template-columns: $grid-columns;
+  }
+}
+
+.armor {
+  $grid-columns: 2fr 1fr repeat(3, calc($input-width * 2));
+
+  &__header {
+    display: grid;
+    grid-template-columns: $grid-columns;
+  }
+  &--block {
+    grid-template-columns: $grid-columns;
+  }
+}
+
+.repcontainer {
+  &[data-groupname='repeating_inventory'],
+  &[data-groupname='repeating_small-items'] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $m-md;
   }
 }

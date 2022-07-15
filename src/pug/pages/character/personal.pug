@@ -3,7 +3,7 @@ section.personal
     const personal = data.character.personal;
     const {
       origin, name, nickname, origin_benefit, xp, background, past_allegiance, trait, drive,
-      looks, abilities, defense, hitpoints, portrait } = personal.fields;
+      looks, abilities, defense, unarmored, hitpoints, portrait } = personal.fields;
     const personalsubs = personal.subtitles;
 
   .death__block.personal__origin
@@ -60,6 +60,10 @@ section.personal
       - const defensesub = personalsubs.defense
       label.death__label(data-i18n=defense.name)=defense.label
       span.death__subtitle(data-i18n=defensesub.name)=defensesub.label
+      span.death__subtitle
+        |  (
+        +span(unarmored)
+        |)
     .personal__defense--block.defense__value
       +field(defense).death__input--bordered
 

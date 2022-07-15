@@ -31,5 +31,5 @@ mixin span(field)
   -
     const name = field.name;
     const value = field.value || "";
-    const klass = attributes.class | "";
+    const klass = attributes.class || "";
   span(name=`attr_${name}`, class=klass)=value

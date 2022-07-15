@@ -1,0 +1,38 @@
+const calculateTotalSlots = () => {
+  getAllAttrs(
+    (values, sections) => {
+      const update = {};
+
+      let total = 0;
+
+      Object.keys(sections).forEach((section) => {
+        switch (section) {
+          case 'repeating_inventory': {
+            const itemslots = sections[section].reduce((sum, id) => {
+              const slot = +values[`${section}_${id}_item_slots`] || 0;
+              const count = 1;
+              // const count = +values[`${section}_${id}_item_count`] || 0;
+              return (sum += slot * count);
+            }, 0);
+
+            total += itemslots;
+            break;
+          }
+
+          case 'repeating_weapons': {
+            const wpnslots = sections[section].reduce((sum, id) => {
+              return (sum += +values[`${section}_${id}_weapon_slots`] || 0);
+            }, 0);
+
+            total += wpnslots;
+            break;
+          }
+        }
+      });
+
+      update.carry = total;
+      setAttrs(update);
+    },
+    [...G_INVENTORY_REPEATING]
+  );
+};

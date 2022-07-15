@@ -955,12 +955,13 @@ html .charsheet .deathinspace span[name]:empty:before {
 }
 html .charsheet .deathinspace label {
   display: block;
-  color: var(--label-color);
-  font-size: 1.25rem;
-  font-weight: 500;
-  text-transform: uppercase;
+  width: auto;
   margin: 0;
   padding: 0;
+  color: var(--label-color);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 html .charsheet .deathinspace .death__block {
   background: var(--block-background);
@@ -971,21 +972,19 @@ html .charsheet .deathinspace .death__input--bordered {
   font-size: 1.5rem !important;
   width: 3.5em !important;
 }
+html .charsheet .deathinspace .death__label {
+  font-size: 1.25rem;
+}
 html .charsheet .deathinspace .death__subtitle {
   color: var(--subtitle-color);
 }
-html .charsheet .deathinspace .repcontainer[data-groupname=repeating_inventory], html .charsheet .deathinspace .repcontainer[data-groupname=repeating_small-items] {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
 html .charsheet .deathinspace .repcontrol {
-  margin: 10px;
+  margin: 5px;
 }
 html .charsheet .deathinspace .repcontrol button {
   box-shadow: none;
   text-shadow: none;
-  color: var(--label-color);
+  color: var(--accent-color);
   padding: 0;
   margin: 0;
   border: none;
@@ -1070,13 +1069,8 @@ html .charsheet .deathinspace .nav {
   display: flex;
   margin: 0;
   padding-top: 5px;
-}
-html .charsheet .deathinspace .nav__character {
-  background-color: #d72328;
-  --active-page-color: #d72328;
-}
-html .charsheet .deathinspace .nav__hub {
-  --active-page-color: #3a8db9;
+  background-color: var(--accent-color);
+  --active-page-color: var(--accent-color);
 }
 html .charsheet .deathinspace .nav__page {
   flex: 1;
@@ -1157,10 +1151,17 @@ html .charsheet .deathinspace input[name*=nav][value=notes] ~ .nav__page--notes 
   font-size: 1.125rem;
 }
 html .charsheet .deathinspace .repeating__empty {
-  color: magenta;
+  border: 2px dotted var(--border-color);
+  color: var(--border-color);
+  padding: 5px;
+  margin: 10px;
+}
+html .charsheet .deathinspace .repeating__is-empty:not([value="0"]) + .repeating__empty {
+  display: none;
 }
 html .charsheet .deathinspace .character {
-  border: 4px solid #d72328;
+  --accent-color: #d72328;
+  border: 4px solid var(--accent-color);
 }
 html .charsheet .deathinspace .character .personal {
   display: grid;
@@ -1411,55 +1412,116 @@ html .charsheet .deathinspace .character .belongings {
   gap: 2px;
   background: var(--grid-background);
   grid-template-columns: 1fr;
-  grid-template-areas: "inventory" "small-items" "weapon-1" "weapon-2" "armor" "holos";
+  grid-template-areas: "carry" "inventory" "small-items" "weapons" "armor" "holos";
+}
+html .charsheet .deathinspace .character .belongings__carry {
+  grid-area: carry;
+  display: grid;
+  grid-template-columns: 1fr 7em 7em;
 }
 html .charsheet .deathinspace .character .belongings__inventory {
   grid-area: inventory;
   display: grid;
 }
-html .charsheet .deathinspace .character .belongings__inventory--header {
-  display: grid;
-  column-gap: 5px;
-  grid-template-columns: repeat(2, 1fr 7em);
-  grid-template-areas: ". label-left . label-right";
+html .charsheet .deathinspace .character .belongings__inventory--slot-limit {
+  font-size: 1.125rem;
 }
 html .charsheet .deathinspace .character .belongings__small-items {
   grid-area: small-items;
 }
-html .charsheet .deathinspace .character .belongings__weapon-1 {
-  grid-area: weapon-1;
-}
-html .charsheet .deathinspace .character .belongings__weapon-2 {
-  grid-area: weapon-2;
+html .charsheet .deathinspace .character .belongings__weapons {
+  grid-area: weapons;
 }
 html .charsheet .deathinspace .character .belongings__armor {
   grid-area: armor;
 }
 html .charsheet .deathinspace .character .belongings__holos {
   grid-area: holos;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+html .charsheet .deathinspace .character .carry__formula {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+html .charsheet .deathinspace .character .carry__formula::before {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  content: "!";
+}
+html .charsheet .deathinspace .character .carry__value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 2px dotted var(--border-color);
 }
 html .charsheet .deathinspace .character .inventory--block,
-html .charsheet .deathinspace .character .small-items--block {
+html .charsheet .deathinspace .character .small-items--block,
+html .charsheet .deathinspace .character .weapons--block,
+html .charsheet .deathinspace .character .armor--block {
   display: grid;
-  grid-template-columns: 1fr auto auto;
 }
 html .charsheet .deathinspace .character .inventory__label,
-html .charsheet .deathinspace .character .small-items__label {
-  font-size: 1rem;
-}
-html .charsheet .deathinspace .character .inventory__label--left,
-html .charsheet .deathinspace .character .small-items__label--left {
-  grid-area: label-left;
-}
-html .charsheet .deathinspace .character .inventory__label--right,
-html .charsheet .deathinspace .character .small-items__label--right {
-  grid-area: label-right;
+html .charsheet .deathinspace .character .small-items__label,
+html .charsheet .deathinspace .character .weapons__label,
+html .charsheet .deathinspace .character .armor__label {
+  text-align: center;
 }
 html .charsheet .deathinspace .character .inventory__input,
-html .charsheet .deathinspace .character .small-items__input {
+html .charsheet .deathinspace .character .small-items__input,
+html .charsheet .deathinspace .character .weapons__input,
+html .charsheet .deathinspace .character .armor__input {
   border-bottom: 2px dotted var(--border-color);
+  border-left: 2px dotted var(--border-color);
 }
-html .charsheet .deathinspace .character .inventory__input[type=number],
-html .charsheet .deathinspace .character .small-items__input[type=number] {
-  width: 7em;
+html .charsheet .deathinspace .character .inventory__input:first-of-type,
+html .charsheet .deathinspace .character .small-items__input:first-of-type,
+html .charsheet .deathinspace .character .weapons__input:first-of-type,
+html .charsheet .deathinspace .character .armor__input:first-of-type {
+  border-left-color: transparent;
+}
+html .charsheet .deathinspace .character .inventory__header {
+  display: grid;
+  column-gap: 5px;
+  grid-template-columns: 1fr repeat(2, 7em) 1fr repeat(2, 7em);
+}
+html .charsheet .deathinspace .character .inventory--block {
+  grid-template-columns: 1fr repeat(2, 7em);
+}
+html .charsheet .deathinspace .character .weapons__header {
+  display: grid;
+  grid-template-columns: 1fr repeat(4, 7em);
+}
+html .charsheet .deathinspace .character .weapons--block {
+  grid-template-columns: 1fr repeat(4, 7em);
+}
+html .charsheet .deathinspace .character .armor__header {
+  display: grid;
+  grid-template-columns: 2fr 1fr repeat(3, 7em);
+}
+html .charsheet .deathinspace .character .armor--block {
+  grid-template-columns: 2fr 1fr repeat(3, 7em);
+}
+html .charsheet .deathinspace .character .repcontainer[data-groupname=repeating_inventory], html .charsheet .deathinspace .character .repcontainer[data-groupname=repeating_small-items] {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 5px;
+}
+html .charsheet .deathinspace .notes {
+  display: grid;
+  gap: 2px;
+  background: var(--grid-background);
+  grid-template-columns: 1fr;
+}
+html .charsheet .deathinspace .repcontainer[data-groupname=repeating_notes] .repitem {
+  border-bottom: 2px dotted var(--border-color);
+  padding: 5px 0;
+  margin: 5px 0;
+}
+html .charsheet .deathinspace .repcontainer[data-groupname=repeating_notes] .repitem:last-of-type {
+  border-bottom-color: transparent;
 }

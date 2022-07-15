@@ -25,8 +25,12 @@ $font-nav: 'IBM Plex Mono', monospace;
 $font-body: 'IBM Plex Mono', monospace;
 $font-input: 'IBM Plex Mono', monospace;
 
+$accent-color: var(--accent-color);
 $character-color: $red;
 $hub-color: $blue;
+
+$active-page-background: var(--active-page-background);
+$active-page-color: var(--active-page-color);
 
 $dis-background: var(--dis-background);
 $block-background: var(--block-background);
@@ -44,9 +48,6 @@ $font-color: var(--font-color);
 $subtitle-color: var(--subtitle-color);
 
 $border-color: var(--border-color);
-
-$active-page-background: var(--active-page-background);
-$active-page-color: var(--active-page-color);
 
 $line-height: 2rem;
 

@@ -87,10 +87,14 @@ span[name] {
 
 label {
   display: block;
-  color: $label-color;
-  font-size: $font-h5;
-  font-weight: 500;
-  text-transform: uppercase;
+  width: auto;
+
   margin: 0;
   padding: 0;
+
+  color: $label-color;
+
+  font-size: $font-m;
+  font-weight: 500;
+  text-transform: uppercase;
 }

@@ -5,7 +5,9 @@
 **/
 const isFieldsetEmpty = (section) => {
   getSectionIDs(section, (id) => {
-    setAttrs({ [`${section}_count`]: id.length });
+    const update = {};
+    update[`is_${section}_empty`] = id.length;
+    setAttrs(update);
   });
 };
 
@@ -30,7 +32,8 @@ const getAllAttrs = function (callback, sectionDetails = [], getArray = []) {
   getSections(getArray, sectionDetails, (getArr, sections) => {
     getAttrs(getArr, (attributes) => {
       // order the sections
-      orderSections(attributes, sections);
+      // orderSections(attributes, sections);
+
       // call the callback function to finally do what we wanted to do.
       callback(attributes, sections);
     });
@@ -52,7 +55,7 @@ const getSections = function (getArray = [], sectionDetails = [], callback, sect
     sections[section.section] = [...idArray];
 
     // add the sections reporder to the getArray so that we can order the idArray later.
-    getArray.push(`_reporder_${section.section}`);
+    // getArray.push(`_reporder_${section.section}`);
 
     // iterate through the ids
     idArray.forEach((id) => {

@@ -98,7 +98,7 @@
         </div>
         <div class="death__block personal__defense">
           <div class="personal__defense--block">
-            <label class="death__label" data-i18n="defense">Defense</label><span class="death__subtitle" data-i18n="defense_formula">12+DEX Unarmored</span>
+            <label class="death__label" data-i18n="defense">Defense</label><span class="death__subtitle" data-i18n="defense_formula">12+DEX Unarmored</span><span class="death__subtitle"> (<span name="attr_unarmored"></span>)</span>
           </div>
           <div class="personal__defense--block defense__value">
             <input class="death__input--bordered personal__defense--number" name="attr_defense" type="number" data-i18n-placeholder="placeholder_defense" placeholder="0"/>
@@ -212,26 +212,39 @@
     </div>
     <div class="page-container page--belongings">
       <section class="belongings">
-        <div class="death__block belongings__inventory">
-          <div class="belongings__inventory--header">
-            <label class="inventory__label inventory__label--left text-center" data-i18n="condition">Condition</label>
-            <label class="inventory__label inventory__label--right text-center" data-i18n="condition">Condition</label>
+        <div class="death__block belongings__carry">
+          <label class="carry__formula" data-i18n="item_slots">Please note that the number of item slots is equal to 12+BDY</label>
+          <div class="belongings__carry--block carry__value">
+            <label class="text-center" data-i18n="carry">Current</label><span class="death__label" name="attr_carry"></span>
           </div>
-          <input name="is_inventory_empty" value="0" type="hidden"/>
+          <div class="belongings__carry--block carry__value">
+            <label class="text-center" data-i18n="carry_max">Max</label><span class="death__label" name="attr_carry_max"></span>
+          </div>
+        </div>
+        <div class="death__block belongings__inventory">
+          <div class="inventory__header">
+            <div></div>
+            <label class="inventory__label inventory__label--left text-center" data-i18n="condition">Condition</label>
+            <label class="inventory__label inventory__label--left text-center" data-i18n="slots">Slots</label>
+            <div></div>
+            <label class="inventory__label inventory__label--right text-center" data-i18n="condition">Condition</label>
+            <label class="inventory__label inventory__label--right text-center" data-i18n="slots">Slots</label>
+          </div>
+          <input class="repeating__is-empty" name="attr_is_inventory_empty" value="0" type="hidden"/>
           <label class="repeating__empty" data-i18n="inventory_is_empty">No inventory recorded.</label>
           <fieldset class="repeating_inventory">
             <div class="inventory">
               <div class="inventory--block">
                 <input class="inventory__input inventory__item_name--text" name="attr_item_name" type="text" data-i18n-placeholder="placeholder_item_name" placeholder="Light EVA suit"/>
-                <div class="divider--dotted"></div>
                 <input class="inventory__input inventory__item_condition--number" name="attr_item_condition" type="number" data-i18n-placeholder="placeholder_item_condition" placeholder="0"/>
+                <input class="inventory__input inventory__item_slots--number" name="attr_item_slots" type="number" value="1" data-i18n-placeholder="placeholder_item_slots" placeholder="1"/>
               </div>
             </div>
           </fieldset>
         </div>
         <div class="death__block belongings__small-items">
           <label class="death__label" data-i18n="small_items">Small Items</label>
-          <input name="is_small-items_empty" value="0" type="hidden"/>
+          <input class="repeating__is-empty" name="attr_is_small-items_empty" value="0" type="hidden"/>
           <label class="repeating__empty" data-i18n="small-items_is_empty">No small-items recorded.</label>
           <fieldset class="repeating_small-items">
             <div class="small-items">
@@ -241,13 +254,158 @@
             </div>
           </fieldset>
         </div>
+        <div class="death__block belongings__weapons">
+          <div class="weapons__header">
+            <label class="death__label" data-i18n="weapons">Weapons</label>
+            <label class="weapons__label" data-18n="weapon_damage">Damage</label>
+            <label class="weapons__label" data-18n="weapon_uses">Uses</label>
+            <label class="weapons__label" data-18n="weapon_condition">Condition</label>
+            <label class="weapons__label" data-18n="weapon_slots">Slots</label>
+          </div>
+          <input class="repeating__is-empty" name="attr_is_weapons_empty" value="0" type="hidden"/>
+          <label class="repeating__empty" data-i18n="weapons_is_empty">No weapons recorded.</label>
+          <fieldset class="repeating_weapons">
+            <div class="weapons">
+              <div class="weapons--block">
+                <input class="weapons__input weapons__weapon_name--text" name="attr_weapon_name" type="text" data-i18n-placeholder="placeholder_weapon_name" placeholder="Oscillator Knife"/>
+                <input class="weapons__input text-center weapons__weapon_damage--text" name="attr_weapon_damage" type="text" data-i18n-placeholder="placeholder_weapon_damage" placeholder="1d4"/>
+                <input class="weapons__input weapons__weapon_uses--number" name="attr_weapon_uses" type="number" data-i18n-placeholder="placeholder_weapon_uses" placeholder="0"/>
+                <input class="weapons__input weapons__weapon_condition--number" name="attr_weapon_condition" type="number" data-i18n-placeholder="placeholder_weapon_condition" placeholder="0"/>
+                <input class="weapons__input weapons__weapon_slots--number" name="attr_weapon_slots" type="number" value="1" data-i18n-placeholder="placeholder_weapon_slots" placeholder="0"/>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="death__block belongings__armor">
+          <div class="armor__header">
+            <label class="death__label" data-i18n="armor">armor</label>
+            <label class="armor__label" data-18n="armor_protects_against">Protects Against</label>
+            <label class="armor__label" data-18n="armor_bonus">DR Bonus</label>
+            <label class="armor__label" data-18n="armor_condition">Condition</label>
+            <label class="armor__label" data-18n="armor_slots">Slots</label>
+          </div>
+          <input class="repeating__is-empty" name="attr_is_armor_empty" value="0" type="hidden"/>
+          <label class="repeating__empty" data-i18n="armor_is_empty">No armor recorded.</label>
+          <fieldset class="repeating_armor">
+            <div class="armor">
+              <div class="armor--block">
+                <input class="armor__input armor__armor_name--text" name="attr_armor_name" type="text" data-i18n-placeholder="placeholder_armor_name" placeholder="Light: Stab proof"/>
+                <input class="armor__input text-center armor__armor_protects_against--text" name="attr_armor_protects_against" type="text" data-i18n-placeholder="placeholder_armor_protects_against" placeholder="Melee and thrown weapons"/>
+                <input class="armor__input armor__armor_bonus--number" name="attr_armor_bonus" type="number" data-i18n-placeholder="placeholder_armor_bonus" placeholder="0"/>
+                <input class="armor__input armor__armor_condition--number" name="attr_armor_condition" type="number" data-i18n-placeholder="placeholder_armor_condition" placeholder="0"/>
+                <input class="armor__input armor__armor_slots--number" name="attr_armor_slots" type="number" value="1" data-i18n-placeholder="placeholder_armor_slots" placeholder="0"/>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="death__block belongings__holos">
+          <div class="belongings__holos--block">
+            <label class="death__label" data-i18n="holos">Holos</label>
+            <input class=" belongings__holos--number" name="attr_holos" type="number" data-i18n-placeholder="placeholder_holos" placeholder="0"/>
+          </div>
+          <div class="belongings__holos--block">
+            <label class="death__label" data-i18n="debts">Debts</label>
+            <input class=" belongings__debts--number" name="attr_debts" type="number" data-i18n-placeholder="placeholder_debts" placeholder="0"/>
+          </div>
+        </div>
       </section>
     </div>
-    <div class="page-container page--notes"></div>
+    <div class="page-container page--notes">
+      <section class="notes">
+        <div class="death__block notes__note">
+          <label class="death__label" data-i18n="notes">Notes</label>
+          <input class="repeating__is-empty" name="attr_is_notes_empty" value="0" type="hidden"/>
+          <label class="repeating__empty" data-i18n="notes_is_empty">No notes recorded.</label>
+          <fieldset class="repeating_notes">
+            <div class="note">
+              <div class="note--block">
+                <input class=" notes__note_title--text" name="attr_note_title" type="text" data-i18n-placeholder="placeholder_note_title" placeholder="Title"/>
+                <textarea class=" notes__note_body--textarea" name="attr_note_body" data-i18n-placeholder="placeholder_note_body" placeholder="Notes"></textarea>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+    </div>
   </main>
   <main class="hub"></main>
 </div>
 <script type="text/worker">
+  const G_REPEATING_SECTIONS = ['inventory', 'small-items', 'weapons', 'armor', 'notes'];
+
+const G_INVENTORY_REPEATING = [
+  { section: 'repeating_inventory', fields: ['item_slots', 'item_count'] },
+  { section: 'repeating_weapons', fields: ['weapon_slots'] },
+];
+
+const G_DERIVED_STATS = {
+  body: [{ name: 'carry_max', base: 12 }],
+  dex: [{ name: 'unarmored', base: 12 }],
+};
+  const calculateTotalSlots = () => {
+  getAllAttrs(
+    (values, sections) => {
+      const update = {};
+
+      let total = 0;
+
+      Object.keys(sections).forEach((section) => {
+        switch (section) {
+          case 'repeating_inventory': {
+            const itemslots = sections[section].reduce((sum, id) => {
+              const slot = +values[`${section}_${id}_item_slots`] || 0;
+              const count = 1;
+              // const count = +values[`${section}_${id}_item_count`] || 0;
+              return (sum += slot * count);
+            }, 0);
+
+            total += itemslots;
+            break;
+          }
+
+          case 'repeating_weapons': {
+            const wpnslots = sections[section].reduce((sum, id) => {
+              return (sum += +values[`${section}_${id}_weapon_slots`] || 0);
+            }, 0);
+
+            total += wpnslots;
+            break;
+          }
+        }
+      });
+
+      update.carry = total;
+      setAttrs(update);
+    },
+    [...G_INVENTORY_REPEATING]
+  );
+};
+  G_REPEATING_SECTIONS.forEach((section) => {
+  on(`change:repeating_${section} remove:repeating_${section}`, (eventInfo) => {
+    isFieldsetEmpty(section);
+  });
+});
+
+// Calculate derived stats
+Object.keys(G_DERIVED_STATS).forEach((stat) => {
+  on(`change:${stat}`, (eventInfo) => {
+    const update = {};
+    const value = +eventInfo.newValue || 0;
+
+    G_DERIVED_STATS[stat].forEach((derived) => {
+      update[derived.name] = derived.base + value;
+    });
+
+    setAttrs(update);
+  });
+});
+
+// Update item slots carried
+on(
+  `change:repeating_inventory:item_slots change:repeating_inventory remove:repeating_inventory ` +
+    `change:repeating_weapons:weapon_slots change:repeating_weapons remove:repeating_weapons`,
+  (eventInfo) => calculateTotalSlots()
+);
   /**
   Checks if a repcontain (e.g. repeating_weapons) is empty.
   This is calculated by looking at the length of IDs in fieldset.
@@ -255,7 +413,9 @@
 **/
 const isFieldsetEmpty = (section) => {
   getSectionIDs(section, (id) => {
-    setAttrs({ [`${section}_count`]: id.length });
+    const update = {};
+    update[`is_${section}_empty`] = id.length;
+    setAttrs(update);
   });
 };
 
@@ -280,7 +440,8 @@ const getAllAttrs = function (callback, sectionDetails = [], getArray = []) {
   getSections(getArray, sectionDetails, (getArr, sections) => {
     getAttrs(getArr, (attributes) => {
       // order the sections
-      orderSections(attributes, sections);
+      // orderSections(attributes, sections);
+
       // call the callback function to finally do what we wanted to do.
       callback(attributes, sections);
     });
@@ -302,7 +463,7 @@ const getSections = function (getArray = [], sectionDetails = [], callback, sect
     sections[section.section] = [...idArray];
 
     // add the sections reporder to the getArray so that we can order the idArray later.
-    getArray.push(`_reporder_${section.section}`);
+    // getArray.push(`_reporder_${section.section}`);
 
     // iterate through the ids
     idArray.forEach((id) => {

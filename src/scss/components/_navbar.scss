@@ -13,13 +13,8 @@
   margin: 0;
   padding-top: $p-md;
 
-  &__character {
-    background-color: $character-color;
-    --active-page-color: #{$character-color};
-  }
-  &__hub {
-    --active-page-color: #{$hub-color};
-  }
+  background-color: $accent-color;
+  --active-page-color: #{$accent-color};
 
   &__page {
     flex: 1;
