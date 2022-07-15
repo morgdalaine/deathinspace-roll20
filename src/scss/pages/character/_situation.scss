@@ -79,50 +79,50 @@
   // oxygen tank gradients
   $oxygen-tank-full: linear-gradient(
     90deg,
-    rgba($oxygen-tank-color, 0) 15px,
-    $oxygen-tank-color 15px,
+    rgba($oxygen-tank-color, 0) 14px,
+    $oxygen-tank-color 14px,
     $oxygen-tank-color 100%
   );
   $oxygen-tank-6: linear-gradient(
     90deg,
-    rgba(235, 32, 38, 0) 15px,
-    #eb2026 0%,
-    #eb2026 130px,
-    rgba(235, 32, 38, 0) 150px
+    rgba($oxygen-tank-color, 0) 14px,
+    $oxygen-tank-color 0%,
+    $oxygen-tank-color 130px,
+    rgba($oxygen-tank-color, 0) 150px
   );
   $oxygen-tank-5: linear-gradient(
     90deg,
-    rgba(235, 32, 38, 0) 15px,
-    #eb2026 0%,
-    #eb2026 105px,
-    rgba(235, 32, 38, 0) 130px
+    rgba($oxygen-tank-color, 0) 14px,
+    $oxygen-tank-color 0%,
+    $oxygen-tank-color 105px,
+    rgba($oxygen-tank-color, 0) 130px
   );
   $oxygen-tank-4: linear-gradient(
     90deg,
-    rgba(235, 32, 38, 0) 15px,
-    #eb2026 0%,
-    #eb2026 85px,
-    rgba(235, 32, 38, 0) 105px
+    rgba($oxygen-tank-color, 0) 14px,
+    $oxygen-tank-color 0%,
+    $oxygen-tank-color 85px,
+    rgba($oxygen-tank-color, 0) 105px
   );
   $oxygen-tank-3: linear-gradient(
     90deg,
-    rgba(235, 32, 38, 0) 15px,
-    #eb2026 0%,
-    #eb2026 60px,
-    rgba(235, 32, 38, 0) 85px
+    rgba($oxygen-tank-color, 0) 14px,
+    $oxygen-tank-color 0%,
+    $oxygen-tank-color 60px,
+    rgba($oxygen-tank-color, 0) 85px
   );
   $oxygen-tank-2: linear-gradient(
     90deg,
-    rgba(235, 32, 38, 0) 15px,
-    #eb2026 0%,
-    #eb2026 35px,
-    rgba(235, 32, 38, 0) 60px
+    rgba($oxygen-tank-color, 0) 14px,
+    $oxygen-tank-color 0%,
+    $oxygen-tank-color 35px,
+    rgba($oxygen-tank-color, 0) 60px
   );
   $oxygen-tank-1: linear-gradient(
     90deg,
-    rgba(235, 32, 38, 0) 15px,
-    #eb2026 0%,
-    rgba(235, 32, 38, 0) 25%
+    rgba($oxygen-tank-color, 0) 14px,
+    $oxygen-tank-color 0%,
+    rgba($oxygen-tank-color, 0) 25%
   );
   $oxygen-tank-0: rgba($oxygen-tank-color, 0);
 
@@ -140,17 +140,17 @@
     }
     &__oxygen-tank {
       position: relative;
-      background-image: url('https://raw.githubusercontent.com/morgdalaine/morgdalaine-roll20/main/DEATH-IN-SPACE/assets/oxygen_tank.png');
+      background-image: url('https://raw.githubusercontent.com/morgdalaine/deathinspace-roll20/main/img/oxygen_tank.png');
       background-repeat: no-repeat;
       background-size: contain;
       height: 60px;
 
       &--grid {
         display: grid;
-        grid-template-columns: 15px repeat(7, 1fr);
+        grid-template-columns: 14px repeat(7, 1fr);
 
-        width: 170px;
-        height: 49px;
+        width: 172px;
+        height: 50px;
 
         position: absolute;
         top: 5px;
