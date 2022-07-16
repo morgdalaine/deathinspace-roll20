@@ -1,3 +1,5 @@
+const G_ABILITIES = ['body', 'dexterity', 'savvy', 'tech'];
+
 const G_REPEATING_SECTIONS = ['inventory', 'small-items', 'weapons', 'armor', 'notes'];
 
 const G_INVENTORY_REPEATING = [

@@ -39,6 +39,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: $m-lg;
+
+    &--block:nth-of-type(2) {
+      border-left: 2px dotted $border-color;
+    }
   }
 }
 

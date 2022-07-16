@@ -1,4 +1,4 @@
-
+<span class="hide" data-i18n="ability">Ability</span><span class="hide" data-i18n="advantage">Advantage</span><span class="hide" data-i18n="disadvantage">Disadvantage</span><span class="hide" data-i18n="roll_type">Roll Type</span><span class="hide" data-i18n="roll">Roll</span><span class="hide" data-i18n="standard">Standard</span><span class="hide" data-i18n="success_on">Success On</span>
 <input type="hidden" name="attr_sheet_type"/>
 <div class="deathinspace">
   <main class="character">
@@ -80,19 +80,19 @@
         <div class="death__block personal__abilities">
           <label class="death__label" data-i18n="abilities">Abilities</label>
           <div class="personal__abilities--block">
-            <button class="ability__button" name="act_body"><span class="ability__label" data-i18n="body">Body</span></button>
+            <button class="ability__button" name="act_body" type="action"><span class="ability__label" data-i18n="body">Body</span></button>
             <input class="ability__value death__input--bordered personal__body--number" name="attr_body" type="number" data-i18n-placeholder="placeholder_body" placeholder="0"/>
           </div>
           <div class="personal__abilities--block">
-            <button class="ability__button" name="act_dexterity"><span class="ability__label" data-i18n="dexterity">Dexterity</span></button>
+            <button class="ability__button" name="act_dexterity" type="action"><span class="ability__label" data-i18n="dexterity">Dexterity</span></button>
             <input class="ability__value death__input--bordered personal__dexterity--number" name="attr_dexterity" type="number" data-i18n-placeholder="placeholder_dexterity" placeholder="0"/>
           </div>
           <div class="personal__abilities--block">
-            <button class="ability__button" name="act_savvy"><span class="ability__label" data-i18n="savvy">Savvy</span></button>
+            <button class="ability__button" name="act_savvy" type="action"><span class="ability__label" data-i18n="savvy">Savvy</span></button>
             <input class="ability__value death__input--bordered personal__savvy--number" name="attr_savvy" type="number" data-i18n-placeholder="placeholder_savvy" placeholder="0"/>
           </div>
           <div class="personal__abilities--block">
-            <button class="ability__button" name="act_tech"><span class="ability__label" data-i18n="tech">Tech</span></button>
+            <button class="ability__button" name="act_tech" type="action"><span class="ability__label" data-i18n="tech">Tech</span></button>
             <input class="ability__value death__input--bordered personal__tech--number" name="attr_tech" type="number" data-i18n-placeholder="placeholder_tech" placeholder="0"/>
           </div>
         </div>
@@ -330,8 +330,24 @@
   </main>
   <main class="hub"></main>
 </div>
+<rolltemplate class="sheet-rolltemplate-dis">
+  <div class="sheet-template-container">{{#name}}
+    <div class="sheet-template-character-name">{{ name }}</div>{{/name}}
+    <div class="sheet-template-header">
+      <div class="sheet-template-header__text"><span>{{ header }}</span></div>
+      <div class="sheet-template-header__roll">{{ roll }}</div>
+    </div>
+    <div class="sheet-template-result">{{#rollLess() roll 12}}
+      <div class="sheet-template-result--fail"><span data-i18n="failure">Failure</span></div>{{/rollLess() roll 12}}{{#^rollLess() roll 12}}
+      <div class="sheet-template-result--success"><span data-i18n="success">Success</span></div>{{/^rollLess() roll 12}}
+    </div>{{#damage}}
+    <div class="sheet-template-damage"><span class="sheet-template-damage__roll">{{ damage }}</span><span class="sheet-template-damage__text" data-i18n="damage">Damage</span></div>{{/damage}}
+  </div>
+</rolltemplate>
 <script type="text/worker">
-  const G_REPEATING_SECTIONS = ['inventory', 'small-items', 'weapons', 'armor', 'notes'];
+  const G_ABILITIES = ['body', 'dexterity', 'savvy', 'tech'];
+
+const G_REPEATING_SECTIONS = ['inventory', 'small-items', 'weapons', 'armor', 'notes'];
 
 const G_INVENTORY_REPEATING = [
   { section: 'repeating_inventory', fields: ['item_slots', 'item_count'] },
@@ -342,70 +358,6 @@ const G_DERIVED_STATS = {
   body: [{ name: 'carry_max', base: 12 }],
   dex: [{ name: 'unarmored', base: 12 }],
 };
-  const calculateTotalSlots = () => {
-  getAllAttrs(
-    (values, sections) => {
-      const update = {};
-
-      let total = 0;
-
-      Object.keys(sections).forEach((section) => {
-        switch (section) {
-          case 'repeating_inventory': {
-            const itemslots = sections[section].reduce((sum, id) => {
-              const slot = +values[`${section}_${id}_item_slots`] || 0;
-              const count = 1;
-              // const count = +values[`${section}_${id}_item_count`] || 0;
-              return (sum += slot * count);
-            }, 0);
-
-            total += itemslots;
-            break;
-          }
-
-          case 'repeating_weapons': {
-            const wpnslots = sections[section].reduce((sum, id) => {
-              return (sum += +values[`${section}_${id}_weapon_slots`] || 0);
-            }, 0);
-
-            total += wpnslots;
-            break;
-          }
-        }
-      });
-
-      update.carry = total;
-      setAttrs(update);
-    },
-    [...G_INVENTORY_REPEATING]
-  );
-};
-  G_REPEATING_SECTIONS.forEach((section) => {
-  on(`change:repeating_${section} remove:repeating_${section}`, (eventInfo) => {
-    isFieldsetEmpty(section);
-  });
-});
-
-// Calculate derived stats
-Object.keys(G_DERIVED_STATS).forEach((stat) => {
-  on(`change:${stat}`, (eventInfo) => {
-    const update = {};
-    const value = +eventInfo.newValue || 0;
-
-    G_DERIVED_STATS[stat].forEach((derived) => {
-      update[derived.name] = derived.base + value;
-    });
-
-    setAttrs(update);
-  });
-});
-
-// Update item slots carried
-on(
-  `change:repeating_inventory:item_slots change:repeating_inventory remove:repeating_inventory ` +
-    `change:repeating_weapons:weapon_slots change:repeating_weapons remove:repeating_weapons`,
-  (eventInfo) => calculateTotalSlots()
-);
   /**
   Checks if a repcontain (e.g. repeating_weapons) is empty.
   This is calculated by looking at the length of IDs in fieldset.
@@ -516,5 +468,96 @@ const orderSection = function (repOrder, IDs = []) {
     }, [], ["strength_mod", "size"]); // calling with default section details
   });
 */
+  const calculateTotalSlots = () => {
+  getAllAttrs(
+    (values, sections) => {
+      const update = {};
+
+      let total = 0;
+
+      Object.keys(sections).forEach((section) => {
+        switch (section) {
+          case 'repeating_inventory': {
+            const itemslots = sections[section].reduce((sum, id) => {
+              const slot = +values[`${section}_${id}_item_slots`] || 0;
+              const count = 1;
+              // const count = +values[`${section}_${id}_item_count`] || 0;
+              return (sum += slot * count);
+            }, 0);
+
+            total += itemslots;
+            break;
+          }
+
+          case 'repeating_weapons': {
+            const wpnslots = sections[section].reduce((sum, id) => {
+              return (sum += +values[`${section}_${id}_weapon_slots`] || 0);
+            }, 0);
+
+            total += wpnslots;
+            break;
+          }
+        }
+      });
+
+      update.carry = total;
+      setAttrs(update);
+    },
+    [...G_INVENTORY_REPEATING]
+  );
+};
+  G_REPEATING_SECTIONS.forEach((section) => {
+  on(`change:repeating_${section} remove:repeating_${section}`, (eventInfo) => {
+    isFieldsetEmpty(section);
+  });
+});
+
+// Calculate derived stats
+Object.keys(G_DERIVED_STATS).forEach((stat) => {
+  on(`change:${stat}`, (eventInfo) => {
+    const update = {};
+    const value = +eventInfo.newValue || 0;
+
+    G_DERIVED_STATS[stat].forEach((derived) => {
+      update[derived.name] = derived.base + value;
+    });
+
+    setAttrs(update);
+  });
+});
+
+// Update item slots carried
+on(
+  `change:repeating_inventory:item_slots change:repeating_inventory remove:repeating_inventory ` +
+    `change:repeating_weapons:weapon_slots change:repeating_weapons remove:repeating_weapons`,
+  (eventInfo) => calculateTotalSlots()
+);
+  const rollAbility = async (ability) => {
+  const abilityName = getTranslationByKey(ability);
+  const abilityWord = getTranslationByKey('ability');
+  const roll = getTranslationByKey('roll');
+  const rollType = getTranslationByKey('roll_type');
+  const standard = getTranslationByKey('standard');
+  const advantage = getTranslationByKey('advantage');
+  const disadvantage = getTranslationByKey('disadvantage');
+  const successOn = getTranslationByKey('success_on');
+
+  const template = [
+    `&{template:dis}`,
+    `{{name=@{character_name}}}`,
+    `{{header=${abilityName}}}`,
+    `{{roll=[[?{${rollType}|${standard}, 1d20|${advantage}, 2d20kh1|${disadvantage}, 2d20kl1}+@{${ability}}]]}}`,
+    `{{type=${abilityWord}}}`,
+  ];
+
+  const result = await startRoll(template.join(' '));
+  const { rollId, results } = result;
+  finishRoll(rollId, results);
+};
+  G_ABILITIES.forEach((ability) => {
+  on(`clicked:${ability}`, async (eventInfo) => {
+    rollAbility(ability);
+  });
+});
 
 </script>

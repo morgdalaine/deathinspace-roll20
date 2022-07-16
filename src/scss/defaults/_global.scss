@@ -1,7 +1,7 @@
 .death {
   &__block {
     background: $block-background;
-    padding: $p-sm;
+    padding: $p-md;
   }
 
   &__input {
@@ -19,4 +19,8 @@
   &__subtitle {
     color: $subtitle-color;
   }
+}
+
+.hide {
+  display: none;
 }

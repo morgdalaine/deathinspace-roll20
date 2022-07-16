@@ -1,29 +1,35 @@
-@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Arsenal&family=Cairo:wght@900&display=swap);
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400|Cairo:300:400:700:900|Marcellus:300,400,700&display=swap');
 
 $blackest: #000;
 $black: #231f1f;
 $white: #fff;
+$dullwhite: #f5f5f5;
+
+// $red: #d72328; // maximum red
+$red: #c7102e;
+$blood: #c9252c;
+
+$yellow: #fff100;
+
+$green: #bcd643;
+
 $blue: #3a8db9;
-$red: #d72328;
+$blue-dark: #006683;
+
+$pink: #ee3773;
 
 $gray: #ced4da;
+$gray-dark: #404041;
+$gray-light: tint-color($gray, 40%);
+$gray-medium: tint-color($gray-dark, 40%);
 
-$oxygen-tank-color: #c7102e;
-
-$gray-100: tint-color($gray, 80%);
-$gray-200: tint-color($gray, 60%);
-$gray-300: tint-color($gray, 40%);
-$gray-400: tint-color($gray, 20%);
-$gray-500: $gray;
-$gray-600: shade-color($gray, 20%);
-$gray-700: shade-color($gray, 40%);
-$gray-800: shade-color($gray, 60%);
-$gray-900: shade-color($gray, 80%);
+$oxygen-tank-color: $red;
 
 $font-title: Cairo, sans-serif;
 $font-nav: 'IBM Plex Mono', monospace;
 $font-body: 'IBM Plex Mono', monospace;
 $font-input: 'IBM Plex Mono', monospace;
+$font-roll: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 $accent-color: var(--accent-color);
 $character-color: $red;
@@ -48,6 +54,10 @@ $font-color: var(--font-color);
 $subtitle-color: var(--subtitle-color);
 
 $border-color: var(--border-color);
+
+$rolltemplate-background: var(--rolltemplate-background);
+$rolltemplate-accent-color: var(--rolltemplate-accent-color);
+$rolltemplate-color: var(--rolltemplate-color);
 
 $line-height: 2rem;
 

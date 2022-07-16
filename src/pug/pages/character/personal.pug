@@ -51,7 +51,7 @@ section.personal
     label.death__label(data-i18n=abilities.name)=abilities.label
     each ability in abilities.fields
       .personal__abilities--block
-        button(name=`act_${ability.name}`).ability__button
+        button(name=`act_${ability.name}`, type="action").ability__button
           span.ability__label(data-i18n=ability.name)=ability.label
         +field(ability).ability__value.death__input--bordered
 

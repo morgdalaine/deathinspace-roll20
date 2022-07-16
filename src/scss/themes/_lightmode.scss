@@ -1,9 +1,10 @@
-* {
+*,
+.sheet-rolltemplate-dis * {
   --block-background: #{$white};
   --grid-background: #{$black};
 
-  --input-background: #{$gray-100};
-  --input-ruler-color: #{$gray-500};
+  --input-background: #{$dullwhite};
+  --input-ruler-color: #{$gray};
   --input-color: #{$black};
   --border-color: #{$black};
 
@@ -12,4 +13,8 @@
   --font-color: #{$black};
 
   --active-page-background: #{$white};
+
+  --rolltemplate-accent-color: #{$blue-dark};
+  --rolltemplate-background: #{$white};
+  --rolltemplate-color: #{$black};
 }
