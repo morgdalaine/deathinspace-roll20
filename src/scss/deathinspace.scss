@@ -15,6 +15,8 @@
 @import 'util/breakpoints';
 @import 'util/grid';
 
+@import 'global';
+
 html {
   font-size: $font-size-root !important;
 
@@ -25,16 +27,13 @@ html {
     @import 'util/utilities';
 
     // global styles
-    @import 'defaults/extra';
-    @import 'defaults/fonts';
-    @import 'defaults/inputs';
-    @import 'defaults/global';
-    @import 'defaults/repcontainer';
+    @import 'defaults';
 
     // page styles
     @import 'components/';
     @import 'pages/character';
     @import 'pages/hub';
     @import 'common/notes';
+    @import 'common/config';
   }
 }

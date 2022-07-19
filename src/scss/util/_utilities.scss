@@ -98,13 +98,13 @@
 }
 
 .fw-bold {
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 .fw-normal {
-  font-weight: 400;
+  font-weight: $font-normal;
 }
 .fw-light {
-  font-weight: 200;
+  font-weight: $font-light;
 }
 
 .fst-italic {

@@ -1,3 +1,10 @@
+/**
+ * Set Roll Type Query
+ */
+on(`sheet:opened`, (eventInfo) => {
+  setRollQueries();
+});
+
 G_REPEATING_SECTIONS.forEach((section) => {
   on(`change:repeating_${section} remove:repeating_${section}`, (eventInfo) => {
     isFieldsetEmpty(section);

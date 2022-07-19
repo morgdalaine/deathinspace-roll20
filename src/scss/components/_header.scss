@@ -6,12 +6,14 @@
   grid-template-columns: 1fr 1fr;
 
   &__character,
+  &__hub,
   &__section-zero {
     background: $block-background;
     padding: $p-sm;
   }
 
-  &__character {
+  &__character,
+  &__hub {
     padding-top: $p-md;
     padding-left: $p-md;
   }
@@ -26,15 +28,15 @@
     }
   }
   &__name {
-    color: $character-color;
+    color: $accent-color;
     font-family: $font-title;
     font-size: 5rem;
-    font-weight: 900;
+    font-weight: $font-extrabold;
     text-transform: uppercase;
     white-space: nowrap;
     line-height: 4rem;
   }
   &__sheet {
-    color: $character-color;
+    color: $accent-color;
   }
 }

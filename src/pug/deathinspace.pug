@@ -2,7 +2,11 @@ include meta/data/data
 include meta/translations
 include components/index
 
-input(type='hidden' name='attr_sheet_type' class='')
+include pages/common/config
+include pages/common/notes
+
+include meta/variables
+
 .deathinspace
   main.character
     include layouts/character
@@ -14,6 +18,7 @@ include templates/rolltemplate
 
 script(type="text/worker")
   include ../js/globals.js
+  include ../js/helpers.js
   include ../js/repeatingsections.js
   include ../js/sheetworkers.js
   include ../js/eventlisteners.js

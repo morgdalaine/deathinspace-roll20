@@ -10,4 +10,4 @@ mixin navigation(sheet)
       .nav__page(class=`nav__page--${field.value}`)
         - const i18nkey = `${field.name}_${field.value}`;
         +field(field).nav__page--input
-        label.nav__label(data-i18n=i18nkey)=field.label
+        label.nav__label(class=`nav__label--${field.value}`, data-i18n=i18nkey)=field.label

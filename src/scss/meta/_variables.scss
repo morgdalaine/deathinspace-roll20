@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400|Cairo:300:400:700:900|Marcellus:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Cairo:wght@400;700;900&family=Dela+Gothic+One&family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap');
 
 $blackest: #000;
 $black: #231f1f;
@@ -29,7 +29,12 @@ $font-title: Cairo, sans-serif;
 $font-nav: 'IBM Plex Mono', monospace;
 $font-body: 'IBM Plex Mono', monospace;
 $font-input: 'IBM Plex Mono', monospace;
-$font-roll: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-roll: Arimo, 'IBM Plex Sans', 'Helvetica Neue', Helvetica, sans-serif;
+
+$font-extrabold: 900;
+$font-bold: 700;
+$font-normal: 400;
+$font-light: 200;
 
 $accent-color: var(--accent-color);
 $character-color: $red;

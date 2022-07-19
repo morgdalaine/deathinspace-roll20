@@ -1,5 +1,8 @@
-<span class="hide" data-i18n="ability">Ability</span><span class="hide" data-i18n="advantage">Advantage</span><span class="hide" data-i18n="disadvantage">Disadvantage</span><span class="hide" data-i18n="roll_type">Roll Type</span><span class="hide" data-i18n="roll">Roll</span><span class="hide" data-i18n="standard">Standard</span><span class="hide" data-i18n="success_on">Success On</span>
-<input type="hidden" name="attr_sheet_type"/>
+<span class="hide" data-i18n="ability">Ability</span><span class="hide" data-i18n="advantage">Advantage</span><span class="hide" data-i18n="disadvantage">Disadvantage</span><span class="hide" data-i18n="roll_type">Roll Type</span><span class="hide" data-i18n="roll">Roll</span><span class="hide" data-i18n="normal">Normal</span><span class="hide" data-i18n="success_on">Success On</span>
+<input type="hidden" name="attr_roll_query"/>
+<input type="hidden" name="attr_rtype" value="1d20"/>
+<input type="hidden" name="attr_wtype"/>
+<input type="hidden" name="attr_sheet_mode" value="character"/>
 <div class="deathinspace">
   <main class="character">
     <header class="header">
@@ -15,20 +18,24 @@
     <nav class="nav nav__character">
       <input class=" nav__nav--hidden" name="attr_nav" type="hidden" value="personal"/>
       <div class="nav__page nav__page--personal">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="personal" data-i18n-title="title_nav_personal" title=""/>
-        <label class="nav__label" data-i18n="nav_personal">Section 1. Personal</label>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="personal" data-i18n-title="title_nav_personal" title="Section 1. Personal"/>
+        <label class="nav__label nav__label--personal" data-i18n="nav_personal">Section 1. Personal</label>
       </div>
       <div class="nav__page nav__page--situation">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="situation" data-i18n-title="title_nav_situation" title=""/>
-        <label class="nav__label" data-i18n="nav_situation">Section 2. Situation</label>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="situation" data-i18n-title="title_nav_situation" title="Section 2. Situation"/>
+        <label class="nav__label nav__label--situation" data-i18n="nav_situation">Section 2. Situation</label>
       </div>
       <div class="nav__page nav__page--belongings">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="belongings" data-i18n-title="title_nav_belongings" title=""/>
-        <label class="nav__label" data-i18n="nav_belongings">Section 3. Belongings</label>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="belongings" data-i18n-title="title_nav_belongings" title="Section 3. Belongings"/>
+        <label class="nav__label nav__label--belongings" data-i18n="nav_belongings">Section 3. Belongings</label>
       </div>
       <div class="nav__page nav__page--notes">
-        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="notes" data-i18n-title="title_nav_notes" title=""/>
-        <label class="nav__label" data-i18n="nav_notes">Section 4. Notes</label>
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="notes" data-i18n-title="title_nav_notes" title="Section 4. Notes"/>
+        <label class="nav__label nav__label--notes" data-i18n="nav_notes">Section 4. Notes</label>
+      </div>
+      <div class="nav__page nav__page--config">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="config" data-i18n-title="title_nav_config" title="Config"/>
+        <label class="nav__label nav__label--config" data-i18n="nav_config">Config</label>
       </div>
     </nav>
     <input class="navigator" name="attr_nav" type="hidden"/>
@@ -42,7 +49,7 @@
         <div class="death__block personal__nickname">
           <div class="personal__nickname--block">
             <label class="death__label" data-i18n="character_name">Name</label>
-            <input class=" personal__character_name--text" name="attr_character_name" type="text" data-i18n-placeholder="placeholder_character_name" placeholder="Aisha Clan-Clan"/>
+            <input class=" personal__character_name--text" name="attr_character_name" type="text" data-i18n-placeholder="placeholder_character_name" placeholder="Aisha Clanclan"/>
           </div>
           <div class="personal__nickname--block">
             <label class="death__label" data-i18n="nickname">Nickname</label>
@@ -129,19 +136,19 @@
             <label class="death__label" data-i18n="void_points">Void Points</label>
             <div class="void-points__radios">
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="0" data-i18n-title="title_void_points_0" title=""/><span class="void-points__label" data-i18n="void_points_0">0</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="0" data-i18n-title="title_void_points_0" title="0"/><span class="void-points__label" data-i18n="void_points_0">0</span>
               </label>
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="1" data-i18n-title="title_void_points_1" title=""/><span class="void-points__label" data-i18n="void_points_1">1</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="1" data-i18n-title="title_void_points_1" title="1"/><span class="void-points__label" data-i18n="void_points_1">1</span>
               </label>
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="2" data-i18n-title="title_void_points_2" title=""/><span class="void-points__label" data-i18n="void_points_2">2</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="2" data-i18n-title="title_void_points_2" title="2"/><span class="void-points__label" data-i18n="void_points_2">2</span>
               </label>
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="3" data-i18n-title="title_void_points_3" title=""/><span class="void-points__label" data-i18n="void_points_3">3</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="3" data-i18n-title="title_void_points_3" title="3"/><span class="void-points__label" data-i18n="void_points_3">3</span>
               </label>
               <label class="void-points__radio">
-                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="4" data-i18n-title="title_void_points_4" title=""/><span class="void-points__label" data-i18n="void_points_4">4</span>
+                <input class="void-points__input situation__void_points--radio" name="attr_void_points" type="radio" value="4" data-i18n-title="title_void_points_4" title="4"/><span class="void-points__label" data-i18n="void_points_4">4</span>
               </label>
             </div>
           </div>
@@ -327,8 +334,184 @@
         </div>
       </section>
     </div>
+    <div class="page-container page--config">
+      <section class="config">
+        <div class="death__block config__sheet-mode">
+          <label class="death__label" data-i18n="sheet_mode">Sheet Mode</label>
+          <div class="sheet-mode__radios">
+            <label class="sheet-mode__radio">
+              <input class="sheet-mode__input sheet-mode__sheet_mode--radio" name="attr_sheet_mode" type="radio" value="character" data-i18n-title="title_sheet_mode_character" title="Character"/><span class="sheet-mode__label" data-i18n="sheet_mode_character">character</span>
+            </label>
+            <label class="sheet-mode__radio">
+              <input class="sheet-mode__input sheet-mode__sheet_mode--radio" name="attr_sheet_mode" type="radio" value="hub" data-i18n-title="title_sheet_mode_hub" title="Hub"/><span class="sheet-mode__label" data-i18n="sheet_mode_hub">hub</span>
+            </label>
+          </div>
+        </div>
+        <div class="death__block config__roll-type">
+          <label class="death__label" data-i18n="rtype">Roll Queries</label>
+          <select class="roll-type__input config__rtype--select" name="attr_rtype" type="select">
+            <option data-i18n="normal" value="1d20">Normal</option>
+            <option data-i18n="advantage" value="2d20kh1">Advantage</option>
+            <option data-i18n="disadvantage" value="2d20kl1">Disadvantage</option>
+            <option data-i18n="always_query" value="@{roll_query}">Always Query</option>
+          </select>
+        </div>
+        <div class="death__block config__whisper-type">
+          <label class="death__label" data-i18n="wtype">Whisper to GM</label>
+          <input class="whisper-type__input config__wtype--checkbox" name="attr_wtype" type="checkbox" value="/w gm " data-i18n-title="title_wtype_w_gm_" title="Whisper to GM"/>
+        </div>
+      </section>
+    </div>
   </main>
-  <main class="hub"></main>
+  <main class="hub">
+    <header class="header">
+      <div class="header__hub">
+        <div class="header__name" data-i18n="death_in_space">Death in Space</div>
+        <label class="header__sheet" data-i18n="hub_data_sheet">Hub Data Sheet</label>
+      </div>
+      <div class="header__section-zero"><span class="header__section-zero--span" data-i18n="owner_information">Section 0. Owner Information</span>
+        <label class="death__label" data-i18n="owner_signature">Owner Name</label>
+        <input class="header__section-zero--input header__owner_signature--text" name="attr_owner_signature" type="text" data-i18n-placeholder="placeholder_owner_signature" placeholder="Gene Starwind"/>
+      </div>
+    </header>
+    <nav class="nav nav__hub">
+      <input class=" nav__nav--hidden" name="attr_nav" type="hidden" value="hubinfo"/>
+      <div class="nav__page nav__page--hubinfo">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="hubinfo" data-i18n-title="title_nav_hubinfo" title="Section 1. Specific Information"/>
+        <label class="nav__label nav__label--hubinfo" data-i18n="nav_hubinfo">Section 1. Specific Information</label>
+      </div>
+      <div class="nav__page nav__page--hubdata">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="hubdata" data-i18n-title="title_nav_hubdata" title="Section 2. Hub Data"/>
+        <label class="nav__label nav__label--hubdata" data-i18n="nav_hubdata">Section 2. Hub Data</label>
+      </div>
+      <div class="nav__page nav__page--hublayout">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="hublayout" data-i18n-title="title_nav_hublayout" title="Section 3. Layout"/>
+        <label class="nav__label nav__label--hublayout" data-i18n="nav_hublayout">Section 3. Layout</label>
+      </div>
+      <div class="nav__page nav__page--hubcargo">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="hubcargo" data-i18n-title="title_nav_hubcargo" title="Section 4. Cargo"/>
+        <label class="nav__label nav__label--hubcargo" data-i18n="nav_hubcargo">Section 4. Cargo</label>
+      </div>
+      <div class="nav__page nav__page--hubnotes">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="hubnotes" data-i18n-title="title_nav_hubnotes" title="Section 5. Notes"/>
+        <label class="nav__label nav__label--hubnotes" data-i18n="nav_hubnotes">Section 5. Notes</label>
+      </div>
+      <div class="nav__page nav__page--config">
+        <input class="nav__page--input nav__nav--radio" name="attr_nav" type="radio" value="config" data-i18n-title="title_nav_config" title="Config"/>
+        <label class="nav__label nav__label--config" data-i18n="nav_config">Config</label>
+      </div>
+    </nav>
+    <input class="navigator" name="attr_nav" type="hidden"/>
+    <div class="page-container page--hubinfo">
+      <section class="hubinfo">
+        <div class="death__block hubinfo__nickname">
+          <label class="death__label" data-i18n="character_name_hub">Nickname</label>
+          <input class=" hubinfo__character_name--text" name="attr_character_name" type="text" data-i18n-placeholder="placeholder_character_name_hub" placeholder="Outlaw Star"/>
+        </div>
+        <div class="death__block hubinfo__hub-type">
+          <div class="hubinfo__hub-type--block">
+            <label class="death__label" data-i18n="hub_type">Hub Type</label>
+            <input class=" hubinfo__hub_type--text" name="attr_hub_type" type="text" data-i18n-placeholder="placeholder_hub_type" placeholder="Spacecraft"/>
+          </div>
+        </div>
+        <div class="death__block hubinfo__background">
+          <label class="death__label" data-i18n="background">Background</label>
+          <textarea class=" hubinfo__background--textarea" name="attr_background" data-i18n-placeholder="placeholder_background_hub" placeholder="Once lost for 31 years in a black hole"></textarea>
+        </div>
+        <div class="death__block hubinfo__appearance">
+          <label class="death__label" data-i18n="appearance">Appearance</label>
+          <textarea class=" hubinfo__appearance--textarea" name="attr_appearance" data-i18n-placeholder="placeholder_appearance" placeholder="Red and blue paint job"></textarea>
+        </div>
+        <div class="death__block hubinfo__quirks">
+          <label class="death__label" data-i18n="quirks">Quirks</label>
+          <input class="repeating__is-empty" name="attr_is_quirks_empty" value="0" type="hidden"/>
+          <label class="repeating__empty" data-i18n="quirks_is_empty">No quirks recorded.</label>
+          <fieldset class="repeating_quirks">
+            <div class="quirks">
+              <div class="quirks--block">
+                <input class="quirks__input hubinfo__quirk_name--text" name="attr_quirk_name" type="text" data-i18n-placeholder="placeholder_quirk_name" placeholder="The light is always eerily dimmed."/>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+    </div>
+    <div class="page-container page--hubdata">
+      <section class="hubdata">
+      </section>
+    </div>
+    <div class="page-container page--hublayout">
+      <section class="hublayout">
+        <div class="death__block hublayout__layout"><img name="attr_character_avatar"/></div>
+      </section>
+    </div>
+    <div class="page-container page--hubcargo">
+      <section class="hubcargo">
+        <div class="death__block hubcargo__cargo">
+          <div class="cargo__header">
+            <label class="death__label" data-i18n="cargo">Cargo</label>
+            <label class="death__label text-center" data-i18n="cargo_count">Qty.</label>
+          </div>
+          <input class="repeating__is-empty" name="attr_is_cargo_empty" value="0" type="hidden"/>
+          <label class="repeating__empty" data-i18n="cargo_is_empty">No cargo recorded.</label>
+          <fieldset class="repeating_cargo">
+            <div class="cargo">
+              <div class="cargo--block">
+                <input class="cargo__title cargo__cargo_title--text" name="attr_cargo_title" type="text" data-i18n-placeholder="placeholder_cargo_title" placeholder="Title"/>
+                <input class="cargo__count cargo__cargo_count--number" name="attr_cargo_count" type="number" data-i18n-placeholder="placeholder_cargo_count" placeholder="0"/>
+                <textarea class="cargo__body cargo__cargo_body--textarea" name="attr_cargo_body" data-i18n-placeholder="placeholder_cargo_body" placeholder="Description"></textarea>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+    </div>
+    <div class="page-container page--hubnotes">
+      <section class="notes">
+        <div class="death__block notes__note">
+          <label class="death__label" data-i18n="notes">Notes</label>
+          <input class="repeating__is-empty" name="attr_is_notes_empty" value="0" type="hidden"/>
+          <label class="repeating__empty" data-i18n="notes_is_empty">No notes recorded.</label>
+          <fieldset class="repeating_notes">
+            <div class="note">
+              <div class="note--block">
+                <input class=" notes__note_title--text" name="attr_note_title" type="text" data-i18n-placeholder="placeholder_note_title" placeholder="Title"/>
+                <textarea class=" notes__note_body--textarea" name="attr_note_body" data-i18n-placeholder="placeholder_note_body" placeholder="Notes"></textarea>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+    </div>
+    <div class="page-container page--config">
+      <section class="config">
+        <div class="death__block config__sheet-mode">
+          <label class="death__label" data-i18n="sheet_mode">Sheet Mode</label>
+          <div class="sheet-mode__radios">
+            <label class="sheet-mode__radio">
+              <input class="sheet-mode__input sheet-mode__sheet_mode--radio" name="attr_sheet_mode" type="radio" value="character" data-i18n-title="title_sheet_mode_character" title="Character"/><span class="sheet-mode__label" data-i18n="sheet_mode_character">character</span>
+            </label>
+            <label class="sheet-mode__radio">
+              <input class="sheet-mode__input sheet-mode__sheet_mode--radio" name="attr_sheet_mode" type="radio" value="hub" data-i18n-title="title_sheet_mode_hub" title="Hub"/><span class="sheet-mode__label" data-i18n="sheet_mode_hub">hub</span>
+            </label>
+          </div>
+        </div>
+        <div class="death__block config__roll-type">
+          <label class="death__label" data-i18n="rtype">Roll Queries</label>
+          <select class="roll-type__input config__rtype--select" name="attr_rtype" type="select">
+            <option data-i18n="normal" value="1d20">Normal</option>
+            <option data-i18n="advantage" value="2d20kh1">Advantage</option>
+            <option data-i18n="disadvantage" value="2d20kl1">Disadvantage</option>
+            <option data-i18n="always_query" value="@{roll_query}">Always Query</option>
+          </select>
+        </div>
+        <div class="death__block config__whisper-type">
+          <label class="death__label" data-i18n="wtype">Whisper to GM</label>
+          <input class="whisper-type__input config__wtype--checkbox" name="attr_wtype" type="checkbox" value="/w gm " data-i18n-title="title_wtype_w_gm_" title="Whisper to GM"/>
+        </div>
+      </section>
+    </div>
+  </main>
 </div>
 <rolltemplate class="sheet-rolltemplate-dis">
   <div class="sheet-template-container">{{#name}}
@@ -347,7 +530,7 @@
 <script type="text/worker">
   const G_ABILITIES = ['body', 'dexterity', 'savvy', 'tech'];
 
-const G_REPEATING_SECTIONS = ['inventory', 'small-items', 'weapons', 'armor', 'notes'];
+const G_REPEATING_SECTIONS = ['inventory', 'small-items', 'weapons', 'armor', 'notes', 'cargo'];
 
 const G_INVENTORY_REPEATING = [
   { section: 'repeating_inventory', fields: ['item_slots', 'item_count'] },
@@ -358,6 +541,26 @@ const G_DERIVED_STATS = {
   body: [{ name: 'carry_max', base: 12 }],
   dex: [{ name: 'unarmored', base: 12 }],
 };
+
+const G_ROLL_TYPES = {
+  normal: '1d20',
+  advantage: '2d20kh1',
+  disadvantage: '2d20kl1',
+};
+
+const G_ROLL_ATTRIBUTE = 'roll_query';
+  const helpers = (() => {
+  /**
+   * Batch translate multiple keys at once.
+   * @param {Array} keys An array of keys to translate.
+   * @returns An array of translated keys.
+   */
+  const getTranslationByArray = (keys) => keys.map((key) => getTranslationByKey(key));
+
+  return {
+    getTranslationByArray,
+  };
+})();
   /**
   Checks if a repcontain (e.g. repeating_weapons) is empty.
   This is calculated by looking at the length of IDs in fieldset.
@@ -468,7 +671,23 @@ const orderSection = function (repOrder, IDs = []) {
     }, [], ["strength_mod", "size"]); // calling with default section details
   });
 */
-  const calculateTotalSlots = () => {
+  const setRollQueries = () => {
+  const update = {};
+
+  const [rollType, normal, advantage, disadvantage] = helpers.getTranslationByArray([
+    'roll_type',
+    'normal',
+    'advantage',
+    'disadvantage',
+  ]);
+
+  const rollQuery = `?{${rollType}|${normal}, 1d20|${advantage}, 2d20kh1|${disadvantage}, 2d20kl1}`;
+
+  update[G_ROLL_ATTRIBUTE] = rollQuery;
+  setAttrs(update);
+};
+
+const calculateTotalSlots = () => {
   getAllAttrs(
     (values, sections) => {
       const update = {};
@@ -480,8 +699,7 @@ const orderSection = function (repOrder, IDs = []) {
           case 'repeating_inventory': {
             const itemslots = sections[section].reduce((sum, id) => {
               const slot = +values[`${section}_${id}_item_slots`] || 0;
-              const count = 1;
-              // const count = +values[`${section}_${id}_item_count`] || 0;
+              const count = 1; // +values[`${section}_${id}_item_count`] || 0;
               return (sum += slot * count);
             }, 0);
 
@@ -506,7 +724,14 @@ const orderSection = function (repOrder, IDs = []) {
     [...G_INVENTORY_REPEATING]
   );
 };
-  G_REPEATING_SECTIONS.forEach((section) => {
+  /**
+ * Set Roll Type Query
+ */
+on(`sheet:opened`, (eventInfo) => {
+  setRollQueries();
+});
+
+G_REPEATING_SECTIONS.forEach((section) => {
   on(`change:repeating_${section} remove:repeating_${section}`, (eventInfo) => {
     isFieldsetEmpty(section);
   });
@@ -532,29 +757,44 @@ on(
     `change:repeating_weapons:weapon_slots change:repeating_weapons remove:repeating_weapons`,
   (eventInfo) => calculateTotalSlots()
 );
-  const rollAbility = async (ability) => {
-  const abilityName = getTranslationByKey(ability);
-  const abilityWord = getTranslationByKey('ability');
-  const roll = getTranslationByKey('roll');
-  const rollType = getTranslationByKey('roll_type');
-  const standard = getTranslationByKey('standard');
-  const advantage = getTranslationByKey('advantage');
-  const disadvantage = getTranslationByKey('disadvantage');
-  const successOn = getTranslationByKey('success_on');
+  const makeRollString = (params) => {
+  const { header, ability, category } = params;
 
   const template = [
+    `@{wtype}`,
     `&{template:dis}`,
     `{{name=@{character_name}}}`,
-    `{{header=${abilityName}}}`,
-    `{{roll=[[?{${rollType}|${standard}, 1d20|${advantage}, 2d20kh1|${disadvantage}, 2d20kl1}+@{${ability}}]]}}`,
-    `{{type=${abilityWord}}}`,
+    `{{header=${header}}}`,
+    `{{category=${category}}}`,
+    `{{roll=[[@{rtype}+${ability}]]}}`,
   ];
 
-  const result = await startRoll(template.join(' '));
+  return template.join(' ');
+};
+
+const makeRoll = async (rollString) => {
+  const result = await startRoll(rollString);
   const { rollId, results } = result;
   finishRoll(rollId, results);
 };
-  G_ABILITIES.forEach((ability) => {
+
+const rollAbility = async (ability) => {
+  const [abilityName, abilityWord] = helpers.getTranslationByArray([ability, 'ability']);
+  const abilityTag = `@{${ability}}[${abilityName}]`;
+
+  const params = {
+    header: abilityName,
+    category: abilityWord,
+    ability: abilityTag,
+  };
+
+  const rollString = makeRollString(params);
+  makeRoll(rollString);
+};
+  /**
+ * Roll Abilities
+ */
+G_ABILITIES.forEach((ability) => {
   on(`clicked:${ability}`, async (eventInfo) => {
     rollAbility(ability);
   });

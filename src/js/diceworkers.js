@@ -1,22 +1,34 @@
-const rollAbility = async (ability) => {
-  const abilityName = getTranslationByKey(ability);
-  const abilityWord = getTranslationByKey('ability');
-  const roll = getTranslationByKey('roll');
-  const rollType = getTranslationByKey('roll_type');
-  const standard = getTranslationByKey('standard');
-  const advantage = getTranslationByKey('advantage');
-  const disadvantage = getTranslationByKey('disadvantage');
-  const successOn = getTranslationByKey('success_on');
+const makeRollString = (params) => {
+  const { header, ability, category } = params;
 
   const template = [
+    `@{wtype}`,
     `&{template:dis}`,
     `{{name=@{character_name}}}`,
-    `{{header=${abilityName}}}`,
-    `{{roll=[[?{${rollType}|${standard}, 1d20|${advantage}, 2d20kh1|${disadvantage}, 2d20kl1}+@{${ability}}]]}}`,
-    `{{type=${abilityWord}}}`,
+    `{{header=${header}}}`,
+    `{{category=${category}}}`,
+    `{{roll=[[@{rtype}+${ability}]]}}`,
   ];
 
-  const result = await startRoll(template.join(' '));
+  return template.join(' ');
+};
+
+const makeRoll = async (rollString) => {
+  const result = await startRoll(rollString);
   const { rollId, results } = result;
   finishRoll(rollId, results);
+};
+
+const rollAbility = async (ability) => {
+  const [abilityName, abilityWord] = helpers.getTranslationByArray([ability, 'ability']);
+  const abilityTag = `@{${ability}}[${abilityName}]`;
+
+  const params = {
+    header: abilityName,
+    category: abilityWord,
+    ability: abilityTag,
+  };
+
+  const rollString = makeRollString(params);
+  makeRoll(rollString);
 };

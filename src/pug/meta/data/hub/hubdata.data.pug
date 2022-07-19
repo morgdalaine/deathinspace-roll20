@@ -1,0 +1,29 @@
+-
+  data.hub.hubdata = {
+    subtitles: {
+      item_slots: { name: "item_slots", label: "Please note that the number of item slots is equal to 12+BDY"},
+    },
+    fields: {
+      defense: { name: "defense_rating", label: "Defense Rating", placeholder: "0", type: "number", blockName: "hubdata" },
+      condition: { name: "condition", label: "Current", type: "hidden", blockName: "hubdata" },
+      condition_max: { name: "condition_max", label: "Max", type: "hidden", blockName: "hubdata" },
+      fuel: { name: "fuel", label: "Current", type: "hidden", blockName: "hubdata" },
+      fuel_max: { name: "fuel_max", label: "Max", type: "hidden", blockName: "hubdata" },
+      outputpower: { name: "output_power", label: "Output Power", type: "hidden", blockName: "hubdata" },
+    },
+    frameintegrity: {
+      fields: {
+        invname: { name: "item_name", label: "Name", placeholder: "Light EVA suit", type: "text", blockName: "frameintegrity" },
+        condition: { name: "item_condition", label: "Condition", placeholder: "0", type: "number", blockName: "frameintegrity" },
+        slots: { name: "item_slots", label: "Slots", value: "1", placeholder: "1", type: "number", blockName: "frameintegrity" },
+      }
+    },
+    modules: {
+      name: "modules",
+      label: "Modules",
+      fields: {
+        modname: { name: "module_name", label: "module", placeholder: "Oscillator Knife", type: "text", blockName: "modules" },
+        modslots: { name: "module_power_cost", label: "Power Cost", value: "0", placeholder: "0", type: "number", blockName: "modules" },
+      }
+    },
+  }

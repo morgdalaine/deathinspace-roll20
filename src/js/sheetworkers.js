@@ -1,3 +1,19 @@
+const setRollQueries = () => {
+  const update = {};
+
+  const [rollType, normal, advantage, disadvantage] = helpers.getTranslationByArray([
+    'roll_type',
+    'normal',
+    'advantage',
+    'disadvantage',
+  ]);
+
+  const rollQuery = `?{${rollType}|${normal}, 1d20|${advantage}, 2d20kh1|${disadvantage}, 2d20kl1}`;
+
+  update[G_ROLL_ATTRIBUTE] = rollQuery;
+  setAttrs(update);
+};
+
 const calculateTotalSlots = () => {
   getAllAttrs(
     (values, sections) => {
@@ -10,8 +26,7 @@ const calculateTotalSlots = () => {
           case 'repeating_inventory': {
             const itemslots = sections[section].reduce((sum, id) => {
               const slot = +values[`${section}_${id}_item_slots`] || 0;
-              const count = 1;
-              // const count = +values[`${section}_${id}_item_count`] || 0;
+              const count = 1; // +values[`${section}_${id}_item_count`] || 0;
               return (sum += slot * count);
             }, 0);
 

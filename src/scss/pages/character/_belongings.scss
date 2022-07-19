@@ -54,7 +54,7 @@
     &::before {
       margin: 0 $m-lg;
       font-size: $font-h4;
-      font-weight: 700;
+      font-weight: $font-bold;
       content: '!';
     }
   }

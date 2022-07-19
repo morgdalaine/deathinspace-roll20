@@ -1,14 +1,16 @@
-section.notes
-  -
-    const notes = data.common.notes;
-    const { notetitle, notebody } = data.common.notes.fields;
-    const notesubs = notes.subtitles;
+mixin notes
 
-  .death__block.notes__note
-    label.death__label(data-i18n="notes") Notes
-    +is-repeating-empty("notes")
-    fieldset.repeating_notes
-      .note
-        .note--block
-          +field(notetitle)
-          +field(notebody)
+  section.notes
+    -
+      const notes = data.common.notes;
+      const { notetitle, notebody } = data.common.notes.fields;
+      const notesubs = notes.subtitles;
+
+    .death__block.notes__note
+      label.death__label(data-i18n="notes") Notes
+      +is-repeating-empty("notes")
+      fieldset.repeating_notes
+        .note
+          .note--block
+            +field(notetitle)
+            +field(notebody)

@@ -1,5 +1,3 @@
-- const sheet = "character";
-
 header.header
   -
     const { player } = data.character.header.fields;
@@ -12,7 +10,7 @@ header.header
     label.death__label(data-i18n=player.name)=player.label
     +field(player).header__section-zero--input
 
-+navigation(sheet)
++navigation("character")
 
 //- pages
 input.navigator(name="attr_nav" type="hidden")
@@ -23,4 +21,6 @@ input.navigator(name="attr_nav" type="hidden")
 .page-container.page--belongings
   include ../pages/character/belongings
 .page-container.page--notes
-  include ../pages/common/notes
+  +notes
+.page-container.page--config
+  +config
