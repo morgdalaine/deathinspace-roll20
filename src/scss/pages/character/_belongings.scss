@@ -41,6 +41,7 @@
     gap: $m-lg;
 
     &--block:nth-of-type(2) {
+      padding-left: $p-md;
       border-left: 2px dotted $border-color;
     }
   }

@@ -1672,6 +1672,7 @@ html .charsheet .deathinspace .character .belongings__holos {
   gap: 10px;
 }
 html .charsheet .deathinspace .character .belongings__holos--block:nth-of-type(2) {
+  padding-left: 5px;
   border-left: 2px dotted var(--border-color);
 }
 html .charsheet .deathinspace .character .carry__formula {
