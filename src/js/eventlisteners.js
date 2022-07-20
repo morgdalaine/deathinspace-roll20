@@ -31,3 +31,9 @@ on(
     `change:repeating_weapons:weapon_slots change:repeating_weapons remove:repeating_weapons`,
   (eventInfo) => calculateTotalSlots()
 );
+
+// Update total power cost
+on(
+  `change:repeating_modules:module_power_cost change:repeating_modules remove:repeating_modules`,
+  (eventInfo) => calculateTotalPowerCost()
+);

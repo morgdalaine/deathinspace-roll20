@@ -4,4 +4,20 @@
     border-right: 2px dotted;
     border-color: $border-color;
   }
+  &--arrow-down {
+    &::before {
+      content: '↓';
+      font-size: $font-h4;
+      font-weight: $font-bold;
+      color: $accent-color;
+    }
+  }
+  &--arrow-right {
+    &::before {
+      content: '→';
+      font-size: $font-h4;
+      font-weight: $font-bold;
+      color: $accent-color;
+    }
+  }
 }

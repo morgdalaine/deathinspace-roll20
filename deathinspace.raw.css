@@ -1003,6 +1003,18 @@ html .charsheet .deathinspace .divider--dotted {
   border-right: 2px dotted;
   border-color: var(--border-color);
 }
+html .charsheet .deathinspace .divider--arrow-down::before {
+  content: "↓";
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+html .charsheet .deathinspace .divider--arrow-right::before {
+  content: "→";
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
 html .charsheet .deathinspace * {
   font-family: "IBM Plex Mono", monospace;
   font-size: 1rem;
@@ -1109,6 +1121,7 @@ html .charsheet .deathinspace .hide {
 }
 html .charsheet .deathinspace .repcontrol {
   margin: 5px;
+  height: 2rem;
 }
 html .charsheet .deathinspace .repcontrol button {
   box-shadow: none;
@@ -1761,8 +1774,264 @@ html .charsheet .deathinspace .hub .hubdata {
   display: grid;
   gap: 2px;
   background: var(--grid-background);
-  grid-template-columns: 1fr;
-  grid-template-areas: "frame-integrity";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "frame-integrity frame-integrity frame-integrity frame-integrity" "integrity-events integrity-events integrity-events integrity-events" "condition fuel power-source output-power" "modules modules modules overheated";
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity {
+  grid-area: frame-integrity;
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity--header {
+  display: flex;
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity--header .death__label:first-of-type {
+  margin-right: 5px;
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity--grid {
+  display: grid;
+  grid-template-columns: 1fr 10%;
+  grid-template-areas: "frame-grid defense-rating";
+  border: 2px solid var(--accent-color);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="10"] ~ .frame-integrity {
+  background: rgba(58, 141, 185, 0.1);
+  background: linear-gradient(90deg, #3a8db9 0, #3a8db9 9.0909090909%, rgba(58, 141, 185, 0) 18.1818181818%);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="20"] ~ .frame-integrity {
+  background: rgba(58, 141, 185, 0.2);
+  background: linear-gradient(90deg, #3a8db9 0, #3a8db9 18.1818181818%, rgba(58, 141, 185, 0) 27.2727272727%);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="30"] ~ .frame-integrity {
+  background: rgba(58, 141, 185, 0.3);
+  background: linear-gradient(90deg, #3a8db9 0, #3a8db9 27.2727272727%, rgba(58, 141, 185, 0) 36.3636363636%);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="40"] ~ .frame-integrity {
+  background: rgba(58, 141, 185, 0.4);
+  background: linear-gradient(90deg, #3a8db9 0, #3a8db9 36.3636363636%, rgba(58, 141, 185, 0) 45.4545454545%);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="50"] ~ .frame-integrity {
+  background: rgba(58, 141, 185, 0.5);
+  background: linear-gradient(90deg, #3a8db9 0, #3a8db9 45.4545454545%, rgba(58, 141, 185, 0) 54.5454545455%);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="60"] ~ .frame-integrity {
+  background: rgba(58, 141, 185, 0.6);
+  background: linear-gradient(90deg, #3a8db9 0, #3a8db9 54.5454545455%, rgba(58, 141, 185, 0) 63.6363636364%);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="70"] ~ .frame-integrity {
+  background: rgba(58, 141, 185, 0.7);
+  background: linear-gradient(90deg, #3a8db9 0, #3a8db9 63.6363636364%, rgba(58, 141, 185, 0) 72.7272727273%);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="80"] ~ .frame-integrity {
+  background: rgba(58, 141, 185, 0.8);
+  background: linear-gradient(90deg, #3a8db9 0, #3a8db9 72.7272727273%, rgba(58, 141, 185, 0) 81.8181818182%);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="90"] ~ .frame-integrity {
+  background: rgba(58, 141, 185, 0.9);
+  background: linear-gradient(90deg, #3a8db9 0, #3a8db9 81.8181818182%, rgba(58, 141, 185, 0) 90.9090909091%);
+}
+html .charsheet .deathinspace .hub .hubdata__frame-integrity input[name*=frame_integrity][value="100"] ~ .frame-integrity {
+  background: #3a8db9;
+}
+html .charsheet .deathinspace .hub .hubdata__integrity-events {
+  grid-area: integrity-events;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr) 10%;
+  grid-template-areas: "condition-zero condition-zero . . distaster-table distaster-table distaster-table . . . all-calm all-calm";
+}
+html .charsheet .deathinspace .hub .hubdata__condition {
+  grid-area: condition;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 5px;
+}
+html .charsheet .deathinspace .hub .hubdata__fuel {
+  grid-area: fuel;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 5px;
+}
+html .charsheet .deathinspace .hub .hubdata__power-source {
+  grid-area: power-source;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 5px;
+}
+html .charsheet .deathinspace .hub .hubdata__output-power {
+  grid-area: output-power;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+html .charsheet .deathinspace .hub .hubdata__output-power .divider--arrow-down::before {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+html .charsheet .deathinspace .hub .hubdata__modules {
+  grid-area: modules;
+  display: grid;
+}
+html .charsheet .deathinspace .hub .hubdata input[name*=overheated][value="1"] + .overheated .overheated__warning {
+  display: block;
+}
+html .charsheet .deathinspace .hub .hubdata input[name*=overheated][value="1"] + .overheated .death__input--bordered {
+  border-color: #c7102e;
+  color: #c7102e;
+}
+html .charsheet .deathinspace .hub .hubdata__overheated {
+  grid-area: overheated;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+html .charsheet .deathinspace .hub .hubdata .divider--arrow-right {
+  position: absolute;
+  top: 1rem;
+  right: -1rem;
+  z-index: 1000;
+}
+html .charsheet .deathinspace .hub .hubdata .divider--arrow-right::before {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+html .charsheet .deathinspace .hub .hubdata .divider--arrow-down {
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  z-index: 1000;
+}
+html .charsheet .deathinspace .hub .frame-integrity {
+  grid-area: frame-grid;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+}
+html .charsheet .deathinspace .hub .frame-integrity--block {
+  border-left: 2px dotted var(--border-color);
+}
+html .charsheet .deathinspace .hub .frame-integrity--block:first-of-type {
+  border-left: none;
+}
+html .charsheet .deathinspace .hub .frame-integrity__value::after {
+  content: "%";
+}
+html .charsheet .deathinspace .hub .frame-integrity__frame {
+  position: relative;
+  height: 100%;
+}
+html .charsheet .deathinspace .hub .frame-integrity__frame--input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+html .charsheet .deathinspace .hub .frame-integrity__frame--label {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: var(--accent-color);
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+}
+html .charsheet .deathinspace .hub .defense-rating {
+  grid-area: defense-rating;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border-left: 2px solid var(--border-color);
+}
+html .charsheet .deathinspace .hub .integrity-events__label--condition-zero {
+  grid-area: condition-zero;
+}
+html .charsheet .deathinspace .hub .integrity-events__label--distaster-table {
+  grid-area: distaster-table;
+}
+html .charsheet .deathinspace .hub .integrity-events__label--all-calm {
+  grid-area: all-calm;
+  border-left: 2px dotted var(--border-color);
+  padding-left: 5px;
+}
+html .charsheet .deathinspace .hub .power-source__radio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+html .charsheet .deathinspace .hub .power-source__input {
+  border: 2px solid var(--border-color);
+  margin: 0 5px;
+  height: 1rem;
+  width: 1rem;
+}
+html .charsheet .deathinspace .hub .power-source__input:checked {
+  background-color: var(--accent-color);
+}
+html .charsheet .deathinspace .hub .power-source__label {
+  text-transform: none;
+}
+html .charsheet .deathinspace .hub .output-power__input {
+  font-size: 2rem;
+}
+html .charsheet .deathinspace .hub .modules__header, html .charsheet .deathinspace .hub .modules__footer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+html .charsheet .deathinspace .hub .modules__footer {
+  align-items: center;
+  gap: 10px;
+}
+html .charsheet .deathinspace .hub .modules__footer--label {
+  text-transform: none;
+}
+html .charsheet .deathinspace .hub .modules__footer .hubdata__total_power_cost--number {
+  margin: 2.5px 0;
+  padding: 5px;
+  padding-bottom: 2.5px;
+  background-color: var(--input-background);
+  width: 100%;
+  border: 2px dotted var(--border-color);
+  color: var(--input-color);
+  font-size: 1rem;
+  text-align: center;
+}
+html .charsheet .deathinspace .hub .modules__footer .divider--arrow-right {
+  top: -0.5rem;
+  right: -1.5rem;
+}
+html .charsheet .deathinspace .hub .modules--block {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+html .charsheet .deathinspace .hub .modules__input {
+  border-bottom: 2px dotted var(--border-color);
+  border-left: 2px dotted var(--border-color);
+}
+html .charsheet .deathinspace .hub .modules__input:first-of-type {
+  border-left-color: transparent;
+}
+html .charsheet .deathinspace .hub .overheated {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+html .charsheet .deathinspace .hub .overheated__warning {
+  display: none;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(201, 37, 44, 0.5);
+  text-shadow: #ff5f1f 0px 0 4px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #c9252c;
+}
+html .charsheet .deathinspace .hub .overheated__label {
+  text-transform: none;
+  margin-top: 10px;
 }
 html .charsheet .deathinspace .hub .hublayout {
   display: grid;

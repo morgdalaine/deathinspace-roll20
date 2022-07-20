@@ -51,3 +51,31 @@ const calculateTotalSlots = () => {
     [...G_INVENTORY_REPEATING]
   );
 };
+
+const calculateTotalPowerCost = () => {
+  getAllAttrs(
+    (values, sections) => {
+      const update = {};
+
+      const total = Object.values(values).reduce((sum, val) => {
+        return sum + (+val || 0);
+      }, 0);
+
+      update.total_power_cost = total;
+      setAttrs(update);
+      console.log(update);
+      calculateOverheated(total);
+    },
+    [...G_MODULES_REPEATING]
+  );
+};
+
+const calculateOverheated = (totalPower) => {
+  getAttrs(G_MODULES_GLOBAL, (values) => {
+    const update = {};
+    const output = +values.output_power || 0;
+    update.overheated = totalPower > output ? 1 : 0;
+    console.log(update);
+    setAttrs(update);
+  });
+};

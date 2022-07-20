@@ -438,6 +438,160 @@
     </div>
     <div class="page-container page--hubdata">
       <section class="hubdata">
+        <div class="death__block hubdata__frame-integrity">
+          <div class="hubdata__frame-integrity--header">
+            <label class="death__label" data-i18n="frame_integrity">Frame Integrity</label><span class="death__label frame-integrity__value" name="attr_frame_integrity"></span>
+          </div>
+          <div class="hubdata__frame-integrity--grid">
+            <input class=" frame-integrity__frame_integrity--hidden" name="attr_frame_integrity" type="hidden"/>
+            <div class="frame-integrity">
+              <div class="frame-integrity--0 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="0" data-i18n-title="title_frame_integrity_0" title="0% Frame Integrity"/><span class="frame-integrity__frame--label">0%</span>
+                  <div class="divider--arrow-down"></div>
+                </label>
+              </div>
+              <div class="frame-integrity--10 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="10" data-i18n-title="title_frame_integrity_10" title="10% Frame Integrity"/>
+                </label>
+              </div>
+              <div class="frame-integrity--20 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="20" data-i18n-title="title_frame_integrity_20" title="20% Frame Integrity"/>
+                </label>
+              </div>
+              <div class="frame-integrity--30 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="30" data-i18n-title="title_frame_integrity_30" title="30% Frame Integrity"/>
+                </label>
+              </div>
+              <div class="frame-integrity--40 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="40" data-i18n-title="title_frame_integrity_40" title="40% Frame Integrity"/>
+                </label>
+              </div>
+              <div class="frame-integrity--50 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="50" data-i18n-title="title_frame_integrity_50" title="50% Frame Integrity"/><span class="frame-integrity__frame--label">50%</span>
+                  <div class="divider--arrow-down"></div>
+                </label>
+              </div>
+              <div class="frame-integrity--60 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="60" data-i18n-title="title_frame_integrity_60" title="60% Frame Integrity"/>
+                </label>
+              </div>
+              <div class="frame-integrity--70 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="70" data-i18n-title="title_frame_integrity_70" title="70% Frame Integrity"/>
+                </label>
+              </div>
+              <div class="frame-integrity--80 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="80" data-i18n-title="title_frame_integrity_80" title="80% Frame Integrity"/>
+                </label>
+              </div>
+              <div class="frame-integrity--90 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="90" data-i18n-title="title_frame_integrity_90" title="90% Frame Integrity"/>
+                </label>
+              </div>
+              <div class="frame-integrity--100 frame-integrity--block">
+                <label class="frame-integrity__frame">
+                  <input class="frame-integrity__frame--input frame-integrity__frame_integrity--radio" name="attr_frame_integrity" type="radio" value="100" data-i18n-title="title_frame_integrity_100" title="100% Frame Integrity"/><span class="frame-integrity__frame--label">100%</span>
+                </label>
+              </div>
+            </div>
+            <div class="defense-rating">
+              <label class="death__label text-center" data-i18n="defense_rating">Defense Rating</label>
+              <input class="death__input--bordered hubdata__defense_rating--number" name="attr_defense_rating" type="number" data-i18n-placeholder="placeholder_defense_rating" placeholder="0"/>
+            </div>
+          </div>
+        </div>
+        <div class="death__block hubdata__integrity-events">
+          <label class="integrity-events__label--condition-zero" data-i18n="condition_zero">Condition 0</label>
+          <label class="integrity-events__label--distaster-table text-center" data-i18n="distaster_table">Roll on the spacecraft disasters table</label>
+          <label class="integrity-events__label--all-calm" data-i18n="all_calm">When all is calm, recover 1D6×10% frame integrity. A calm night restores to 100%.</label>
+        </div>
+        <div class="death__block hubdata__condition">
+          <label class="death__label" data-i18n="condition">Condition</label>
+          <div class="hubdata__condition--block">
+            <label class="text-center" data-i18n="current">Current</label>
+            <input class="death__input--bordered hubdata__condition--number" name="attr_condition" type="number" data-i18n-placeholder="placeholder_condition" placeholder="0"/>
+          </div>
+          <div class="hubdata__condition--block">
+            <label class="text-center" data-i18n="max">Max</label>
+            <input class="death__input--bordered hubdata__condition_max--number" name="attr_condition_max" type="number" data-i18n-placeholder="placeholder_condition_max" placeholder="0"/>
+          </div>
+        </div>
+        <div class="death__block hubdata__fuel">
+          <label class="death__label" data-i18n="fuel">Fuel</label>
+          <div class="hubdata__fuel--block">
+            <label class="text-center" data-i18n="current">Current</label>
+            <input class="death__input--bordered hubdata__fuel--number" name="attr_fuel" type="number" data-i18n-placeholder="placeholder_fuel" placeholder="0"/>
+          </div>
+          <div class="hubdata__fuel--block">
+            <label class="text-center" data-i18n="max">Max</label>
+            <input class="death__input--bordered hubdata__fuel_max--number" name="attr_fuel_max" type="number" data-i18n-placeholder="placeholder_fuel_max" placeholder="0"/>
+          </div>
+        </div>
+        <div class="death__block hubdata__power-source">
+          <label class="death__label" data-i18n="power_source">Power Source</label>
+          <div class="hubdata__power-source--block">
+            <div class="power-source">
+              <label class="power-source__radio">
+                <input class="power-source__input power-source__power_source--radio" name="attr_power_source" type="radio" value="slow" data-i18n-title="title_power_source_slow" title="Slow"/><span class="power-source__label fst-italic" data-i18n="power_source_slow">Slow</span>
+              </label>
+              <label class="power-source__radio">
+                <input class="power-source__input power-source__power_source--radio" name="attr_power_source" type="radio" value="fast" data-i18n-title="title_power_source_fast" title="Fast"/><span class="power-source__label fst-italic" data-i18n="power_source_fast">Fast</span>
+              </label>
+              <label class="power-source__radio">
+                <input class="power-source__input power-source__power_source--radio" name="attr_power_source" type="radio" value="unknown" data-i18n-title="title_power_source_unknown" title="Unknown"/><span class="power-source__label fst-italic" data-i18n="power_source_unknown">Unknown</span>
+              </label>
+            </div>
+          </div>
+          <div class="divider--arrow-right"></div>
+        </div>
+        <div class="death__block hubdata__output-power">
+          <label class="text-center" data-i18n="output_power">Output Power</label>
+          <input class="death__input--bordered hubdata__output_power--number" name="attr_output_power" type="number" data-i18n-placeholder="placeholder_output_power"/>
+          <div class="divider--arrow-down"></div>
+        </div>
+        <div class="death__block hubdata__modules">
+          <label class="text-center" data-i18n="output_power">Output Power</label><span class="modules__input" name="attr_output_power"></span>
+        </div>
+        <div class="death__block hubdata__modules">
+          <div class="hubdata__modules--block">
+            <div class="modules__header">
+              <label class="death__label" data-i18n="module_name">module</label>
+              <label class="modules__label text-center" data-i18n="module_power_cost">Power Cost</label>
+            </div>
+            <input class="repeating__is-empty" name="attr_is_modules_empty" value="0" type="hidden"/>
+            <label class="repeating__empty" data-i18n="modules_is_empty">No modules recorded.</label>
+            <fieldset class="repeating_modules">
+              <div class="modules">
+                <div class="modules--block">
+                  <input class="modules__input modules__module_name--text" name="attr_module_name" type="text" data-i18n-placeholder="placeholder_module_name" placeholder="Panic Room"/>
+                  <input class="modules__input modules__module_power_cost--number" name="attr_module_power_cost" type="number" value="0" data-i18n-placeholder="placeholder_module_power_cost" placeholder="0"/>
+                </div>
+              </div>
+            </fieldset>
+            <div class="modules__footer">
+              <label class="modules__footer--label text-end fst-italic" data-i18n="total_power_cost">The power cost sum should not exceed the output power.</label><span class="hubdata__total_power_cost--number" name="attr_total_power_cost"></span>
+              <div class="divider--arrow-right"></div>
+            </div>
+          </div>
+        </div>
+        <div class="death__block hubdata__overheated">
+          <label class="overheated__label text-center fst-italic" data-i18n="overheated_warning">Power cost &gt; power output = overheated</label>
+          <input class=" hubdata__overheated--hidden" name="attr_overheated" type="hidden"/>
+          <div class="overheated">
+            <label class="overheated__warning" data-i18n="overheated">Overheated</label>
+            <label class="text-center" data-i18n="output_power">Output Power</label>
+            <input class="death__input--bordered hubdata__output_power--number" name="attr_output_power" type="number" data-i18n-placeholder="placeholder_output_power"/>
+          </div>
+        </div>
       </section>
     </div>
     <div class="page-container page--hublayout">
@@ -530,12 +684,24 @@
 <script type="text/worker">
   const G_ABILITIES = ['body', 'dexterity', 'savvy', 'tech'];
 
-const G_REPEATING_SECTIONS = ['inventory', 'small-items', 'weapons', 'armor', 'notes', 'cargo'];
+const G_REPEATING_SECTIONS = [
+  'armor',
+  'cargo',
+  'inventory',
+  'modules',
+  'notes',
+  'quirks',
+  'small-items',
+  'weapons',
+];
 
 const G_INVENTORY_REPEATING = [
   { section: 'repeating_inventory', fields: ['item_slots', 'item_count'] },
   { section: 'repeating_weapons', fields: ['weapon_slots'] },
 ];
+
+const G_MODULES_REPEATING = [{ section: 'repeating_modules', fields: ['module_power_cost'] }];
+const G_MODULES_GLOBAL = ['output_power'];
 
 const G_DERIVED_STATS = {
   body: [{ name: 'carry_max', base: 12 }],
@@ -724,6 +890,34 @@ const calculateTotalSlots = () => {
     [...G_INVENTORY_REPEATING]
   );
 };
+
+const calculateTotalPowerCost = () => {
+  getAllAttrs(
+    (values, sections) => {
+      const update = {};
+
+      const total = Object.values(values).reduce((sum, val) => {
+        return sum + (+val || 0);
+      }, 0);
+
+      update.total_power_cost = total;
+      setAttrs(update);
+      console.log(update);
+      calculateOverheated(total);
+    },
+    [...G_MODULES_REPEATING]
+  );
+};
+
+const calculateOverheated = (totalPower) => {
+  getAttrs(G_MODULES_GLOBAL, (values) => {
+    const update = {};
+    const output = +values.output_power || 0;
+    update.overheated = totalPower > output ? 1 : 0;
+    console.log(update);
+    setAttrs(update);
+  });
+};
   /**
  * Set Roll Type Query
  */
@@ -756,6 +950,12 @@ on(
   `change:repeating_inventory:item_slots change:repeating_inventory remove:repeating_inventory ` +
     `change:repeating_weapons:weapon_slots change:repeating_weapons remove:repeating_weapons`,
   (eventInfo) => calculateTotalSlots()
+);
+
+// Update total power cost
+on(
+  `change:repeating_modules:module_power_cost change:repeating_modules remove:repeating_modules`,
+  (eventInfo) => calculateTotalPowerCost()
 );
   const makeRollString = (params) => {
   const { header, ability, category } = params;
