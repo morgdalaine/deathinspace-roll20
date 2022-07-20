@@ -6,7 +6,10 @@ const helpers = (() => {
    */
   const getTranslationByArray = (keys) => keys.map((key) => getTranslationByKey(key));
 
+  const getSectionId = (sourceAttribute) => sourceAttribute.split(/_/g).at(2);
+
   return {
+    getSectionId,
     getTranslationByArray,
   };
 })();

@@ -1,5 +1,7 @@
 const makeRollString = (params) => {
-  const { header, ability, category } = params;
+  const { header, ability, category, damage } = params;
+
+  console.log({ damage });
 
   const template = [
     `@{wtype}`,
@@ -9,6 +11,10 @@ const makeRollString = (params) => {
     `{{category=${category}}}`,
     `{{roll=[[@{rtype}+${ability}]]}}`,
   ];
+
+  if (damage) {
+    template.push(`{{damage=[[${damage}]]}}`);
+  }
 
   return template.join(' ');
 };
@@ -31,4 +37,27 @@ const rollAbility = async (ability) => {
 
   const rollString = makeRollString(params);
   makeRoll(rollString);
+};
+
+const rollWeapon = async (sectionId) => {
+  const weaponType = `repeating_weapons_${sectionId}_weapon_type`;
+  const weapoDamage = `repeating_weapons_${sectionId}_weapon_damage`;
+  const request = [weaponType];
+  getAttrs(request, (values) => {
+    const ability = values[weaponType];
+    const damage = values[weapoDamage];
+
+    const [abilityName, abilityWord] = helpers.getTranslationByArray([ability, 'ability']);
+    const abilityTag = `@{${ability}}[${abilityName}]`;
+
+    const params = {
+      header: abilityName,
+      category: abilityWord,
+      ability: abilityTag,
+      damage: damage,
+    };
+
+    const rollString = makeRollString(params);
+    makeRoll(rollString);
+  });
 };

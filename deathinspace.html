@@ -263,7 +263,9 @@
         </div>
         <div class="death__block belongings__weapons">
           <div class="weapons__header">
+            <div></div>
             <label class="death__label" data-i18n="weapons">Weapons</label>
+            <label class="weapons__label" data-18n="weapon_type">Type</label>
             <label class="weapons__label" data-18n="weapon_damage">Damage</label>
             <label class="weapons__label" data-18n="weapon_uses">Uses</label>
             <label class="weapons__label" data-18n="weapon_condition">Condition</label>
@@ -274,7 +276,12 @@
           <fieldset class="repeating_weapons">
             <div class="weapons">
               <div class="weapons--block">
+                <button class="weapons__button" name="act_attack" type="action"><span class="weapons__button--label" data-i18n="attack">Attack</span></button>
                 <input class="weapons__input weapons__weapon_name--text" name="attr_weapon_name" type="text" data-i18n-placeholder="placeholder_weapon_name" placeholder="Oscillator Knife"/>
+                <select class="weapons__input weapons__weapon_type--select" name="attr_weapon_type" type="select">
+                  <option data-i18n="melee" value="body">Melee</option>
+                  <option data-i18n="ranged" value="tech">Ranged</option>
+                </select>
                 <input class="weapons__input text-center weapons__weapon_damage--text" name="attr_weapon_damage" type="text" data-i18n-placeholder="placeholder_weapon_damage" placeholder="1d4"/>
                 <input class="weapons__input weapons__weapon_uses--number" name="attr_weapon_uses" type="number" data-i18n-placeholder="placeholder_weapon_uses" placeholder="0"/>
                 <input class="weapons__input weapons__weapon_condition--number" name="attr_weapon_condition" type="number" data-i18n-placeholder="placeholder_weapon_condition" placeholder="0"/>
@@ -723,7 +730,10 @@ const G_ROLL_ATTRIBUTE = 'roll_query';
    */
   const getTranslationByArray = (keys) => keys.map((key) => getTranslationByKey(key));
 
+  const getSectionId = (sourceAttribute) => sourceAttribute.split(/_/g).at(2);
+
   return {
+    getSectionId,
     getTranslationByArray,
   };
 })();
@@ -958,7 +968,9 @@ on(
   (eventInfo) => calculateTotalPowerCost()
 );
   const makeRollString = (params) => {
-  const { header, ability, category } = params;
+  const { header, ability, category, damage } = params;
+
+  console.log({ damage });
 
   const template = [
     `@{wtype}`,
@@ -968,6 +980,10 @@ on(
     `{{category=${category}}}`,
     `{{roll=[[@{rtype}+${ability}]]}}`,
   ];
+
+  if (damage) {
+    template.push(`{{damage=[[${damage}]]}}`);
+  }
 
   return template.join(' ');
 };
@@ -991,6 +1007,29 @@ const rollAbility = async (ability) => {
   const rollString = makeRollString(params);
   makeRoll(rollString);
 };
+
+const rollWeapon = async (sectionId) => {
+  const weaponType = `repeating_weapons_${sectionId}_weapon_type`;
+  const weapoDamage = `repeating_weapons_${sectionId}_weapon_damage`;
+  const request = [weaponType];
+  getAttrs(request, (values) => {
+    const ability = values[weaponType];
+    const damage = values[weapoDamage];
+
+    const [abilityName, abilityWord] = helpers.getTranslationByArray([ability, 'ability']);
+    const abilityTag = `@{${ability}}[${abilityName}]`;
+
+    const params = {
+      header: abilityName,
+      category: abilityWord,
+      ability: abilityTag,
+      damage: damage,
+    };
+
+    const rollString = makeRollString(params);
+    makeRoll(rollString);
+  });
+};
   /**
  * Roll Abilities
  */
@@ -998,6 +1037,12 @@ G_ABILITIES.forEach((ability) => {
   on(`clicked:${ability}`, async (eventInfo) => {
     rollAbility(ability);
   });
+});
+
+on(`clicked:repeating_weapons:attack`, async (eventInfo) => {
+  console.dir(eventInfo);
+  const sectionId = helpers.getSectionId(eventInfo.sourceAttribute);
+  rollWeapon(sectionId);
 });
 
 </script>

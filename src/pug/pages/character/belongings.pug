@@ -40,9 +40,11 @@ section.belongings
           +field(itemname).small-items__input
 
   .death__block.belongings__weapons
-    - const { wpnname, wpndamage, wpnuses, wpncondition, wpnslots } = belongings.weapons.fields;
+    - const { wpnname, wpntype, wpndamage, wpnuses, wpncondition, wpnslots } = belongings.weapons.fields;
     .weapons__header
+      div
       label.death__label(data-i18n="weapons") Weapons
+      label.weapons__label(data-18n=wpntype.name)=wpntype.label
       label.weapons__label(data-18n=wpndamage.name)=wpndamage.label
       label.weapons__label(data-18n=wpnuses.name)=wpnuses.label
       label.weapons__label(data-18n=wpncondition.name)=wpncondition.label
@@ -51,7 +53,10 @@ section.belongings
     fieldset.repeating_weapons
       .weapons
         .weapons--block
+          button(name=`act_attack`, type="action").weapons__button
+            span.weapons__button--label(data-i18n="attack") Attack
           +field(wpnname).weapons__input
+          +field(wpntype).weapons__input
           +field(wpndamage).weapons__input.text-center
           +field(wpnuses).weapons__input
           +field(wpncondition).weapons__input

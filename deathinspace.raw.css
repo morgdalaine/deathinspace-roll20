@@ -1728,10 +1728,18 @@ html .charsheet .deathinspace .character .inventory--block {
 }
 html .charsheet .deathinspace .character .weapons__header {
   display: grid;
-  grid-template-columns: 1fr repeat(4, 7em);
+  grid-template-columns: auto 1fr 10.5em repeat(4, 7em);
 }
 html .charsheet .deathinspace .character .weapons--block {
-  grid-template-columns: 1fr repeat(4, 7em);
+  grid-template-columns: auto 1fr 10.5em repeat(4, 7em);
+}
+html .charsheet .deathinspace .character .weapons__button {
+  padding: 5px;
+}
+html .charsheet .deathinspace .character .weapons__button--label {
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 html .charsheet .deathinspace .character .armor__header {
   display: grid;

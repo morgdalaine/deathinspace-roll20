@@ -1,4 +1,10 @@
 -
+  const weaponTypeArray = [
+    { name: "melee",   label: "Melee",   value: "body" },
+    { name: "ranged",  label: "Ranged",  value: "tech" },
+  ];
+
+
   data.character.belongings = {
     subtitles: {
       item_slots: { name: "item_slots", label: "Please note that the number of item slots is equal to 12+BDY"},
@@ -24,6 +30,7 @@
     weapons: {
       fields: {
         wpnname: { name: "weapon_name", label: "Weapon", placeholder: "Oscillator Knife", type: "text", blockName: "weapons" },
+        wpntype: { name: "weapon_type", label: "Type", options: weaponTypeArray, type: "select", blockName: "weapons" },
         wpndamage: { name: "weapon_damage", label: "Damage", placeholder: "1d4", type: "text", blockName: "weapons" },
         wpnuses: { name: "weapon_uses", label: "Uses", placeholder: "0", type: "number", blockName: "weapons" },
         wpncondition: { name: "weapon_condition", label: "Condition", placeholder: "0", type: "number", blockName: "weapons" },

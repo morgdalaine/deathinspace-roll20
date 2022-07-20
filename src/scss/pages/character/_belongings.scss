@@ -102,7 +102,7 @@
 }
 
 .weapons {
-  $grid-columns: 1fr repeat(4, calc($input-width * 2));
+  $grid-columns: auto 1fr calc($input-width * 3) repeat(4, calc($input-width * 2));
 
   &__header {
     display: grid;
@@ -110,6 +110,14 @@
   }
   &--block {
     grid-template-columns: $grid-columns;
+  }
+  &__button {
+    padding: $p-md;
+    &--label {
+      font-weight: $font-extrabold;
+      font-size: $font-h4;
+      text-transform: uppercase;
+    }
   }
 }
 
